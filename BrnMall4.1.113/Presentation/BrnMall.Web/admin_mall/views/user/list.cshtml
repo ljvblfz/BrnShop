@@ -1,0 +1,104 @@
+﻿@model BrnMall.Web.MallAdmin.Models.UserListModel
+
+@section header{
+<title>用户列表</title>
+<link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css"/>
+<script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+<script type="text/javascript" src="/admin_mall/scripts/showlist.js"></script>
+}
+
+@section body{
+<h1 class="rightH1">
+用户管理 &gt;&gt; 用户列表
+<div class="right">
+<a href="@Url.Action("add")" class="menuBT"><img src="/admin_mall/images/add.jpg"/>添加</a>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</h1>
+@using (Html.BeginForm("list", "user"))
+{
+<div class="dataListSearch">
+<table height="32">
+        <tbody>
+         <tr>
+        <td width="35"><img id="searchImg" src="/admin_mall/images/search1.gif"/></td>
+        <td>
+          会员等级：
+        </td>
+        <td width="110">
+          @Html.DropDownListFor(x => x.UserRid, Model.UserRankList)
+        </td>
+        <td>
+          &nbsp;&nbsp;管理员组：
+        </td>
+        <td width="110">
+          @Html.DropDownListFor(x => x.MallAGid, Model.MallAdminGroupList)
+        </td>
+        <td>
+          用户名：
+        </td>
+        <td width="130">
+          	@Html.TextBox("UserName", Model.UserName, new { height = "18" })
+        </td>
+        <td>
+          &nbsp;&nbsp;&nbsp;邮箱：
+        </td>
+        <td width="130">
+          	@Html.TextBox("Email", Model.Email, new { height = "18" })
+        </td>
+        <td>
+          &nbsp;&nbsp;&nbsp;手机：
+        </td>
+        <td width="130">
+          	@Html.TextBox("Mobile", Model.Mobile, new { height = "18" })
+        </td>
+       <td>
+       <input id="SearchUser" name="SearchUser" type="image" class="searchBut submit" src="/admin_mall/images/s.jpg" />
+       </td>
+      </tr>
+     </tbody></table>
+</div>
+
+<div class="dataList">
+<table width="100%">
+<thead>
+  <tr>
+    <th width="10"></th>
+    <th width="60" align="left">编号</th>
+    <th width="140" align="left">用户名</th>
+    <th align="left">昵称</th>
+    <th width="80" align="left">支付积分</th>
+    <th width="180" align="left">邮箱手机</th>
+    <th width="140" align="left">权限</th>
+    <th width="150" align="left">注册访问</th>
+    <th width="56" align="left">管理操作</th>
+    </tr>
+</thead>
+  <tbody>
+  @foreach (DataRow row in Model.UserList.Rows)
+  {
+  <tr>
+    <td></td>
+    <td>@row["uid"]</td>
+    <td>@row["username"]</td>
+    <td>@row["nickname"]</td>
+    <td>@row["paycredits"]</td>
+    <td>@row["email"]<br />@row["mobile"]</td>
+    <td>@row["utitle"]<br />@row["atitle"]</td>
+    <td>@row["registertime"]<br />@row["lastvisittime"]</td>
+    <td>
+        @Html.ActionLink("[编辑]", "edit", new { uid = row["uid"] }, new { @class = "editOperate" })
+    </td>
+    </tr>
+  }
+</tbody>
+</table>
+</div>
+<div class="dataListEdit">
+<div class="page">
+    @Html.MallAdminPager(Model.PageModel)
+</div>
+</div>
+}
+}

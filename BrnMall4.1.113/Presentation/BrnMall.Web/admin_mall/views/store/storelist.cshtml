@@ -1,0 +1,107 @@
+﻿@model BrnMall.Web.MallAdmin.Models.StoreListModel
+
+@section header{
+<title>店铺列表</title>
+<link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css"/>
+<script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+<script type="text/javascript" src="/admin_mall/scripts/showlist.js"></script>
+}
+
+@section body{
+<h1 class="rightH1">
+店铺管理 &gt;&gt; 店铺列表
+<div class="right">
+<a href="@Url.Action("addstore")" class="menuBT"><img src="/admin_mall/images/add.jpg"/>添加</a>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</h1>
+@using (Html.BeginForm("storelist", "store"))
+{
+<div class="dataListSearch">
+<table height="32">
+        <tbody>
+         <tr>
+        <td width="35"><img id="searchImg" src="/admin_mall/images/search1.gif"/></td>
+        <td>
+          店铺等级：
+        </td>
+        <td width="110">
+          @Html.DropDownListFor(x => x.StoreRid, Model.StoreRankList)
+        </td>
+        <td>
+         店铺行业：
+        </td>
+        <td width="110">
+          @Html.DropDownListFor(x => x.StoreIid, Model.StoreIndustryList)
+        </td>
+         <td>
+         店铺状态：
+        </td>
+        <td width="90">
+          @Html.DropDownListFor(x => x.State, Model.StoreStateList)
+        </td>
+        <td>
+          店铺名：
+        </td>
+        <td width="130">
+          	@Html.TextBox("StoreName", Model.StoreName, new { height = "18" })
+        </td>
+       <td>
+       <input id="SearchStore" name="SearchStore" type="image" class="searchBut submit" src="/admin_mall/images/s.jpg" />
+       </td>
+      </tr>
+     </tbody></table>
+</div>
+
+<div class="dataList">
+<table width="100%">
+<thead>
+  <tr>
+    <th width="10" align="center"></th>
+    <th width="80" align="left">编号</th>
+    <th align="left">名称</th>
+    <th width="160" align="left">等级</th>
+    <th width="140" align="left">创建时间</th>
+    <th width="70" align="left">管理员</th>
+    <th width="266 align="left">管理操作</th>
+    </tr>
+</thead>
+  <tbody>
+  @foreach (DataRow row in Model.StoreList.Rows)
+  {
+  <tr>
+    <td align="center"></td>
+    <td>@row["storeid"]</td>
+    <td>@row["name"]</td>
+    <td>@row["title"]</td>
+    <td>@row["createtime"]</td>
+    <td>
+    @if (TypeHelper.ObjectToInt(row["uid"]) > 0)
+    {
+        @:有
+    }
+    else
+    {
+        @:无
+    }
+    </td>
+    <td>
+        @Html.ActionLink("[店长信息]", "editstorekeeper", new { storeId = row["storeid"] }, new { @class = "editOperate" })
+        @Html.ActionLink("[店铺分类]", "storeclasslist", new { storeId = row["storeid"] }, new { @class = "editOperate" })
+        @Html.ActionLink("[配送模板]", "storeshiptemplatelist", new { storeId = row["storeid"] }, new { @class = "editOperate" })
+        @Html.ActionLink("[管理员]", "setstoreadminer", new { storeId = row["storeid"] }, new { @class = "editOperate" }) 
+        @Html.ActionLink("[编辑]", "editstore", new { storeId = row["storeid"] }, new { @class = "editOperate" }) 
+    </td>
+    </tr>
+  }
+</tbody>
+</table>
+</div>
+<div class="dataListEdit">
+<div class="page">
+    @Html.MallAdminPager(Model.PageModel)
+</div>
+</div>
+}
+}

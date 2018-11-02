@@ -1,0 +1,69 @@
+﻿@model BrnMall.Web.StoreAdmin.Models.StoreShipTemplateListModel
+
+@section header{
+    <title>配送模板列表</title>
+    <link type="text/css" rel="stylesheet" href="/admin_store/css/site.css"/>
+    <script type="text/javascript" src="/admin_store/scripts/jquery.js"></script>
+    <script type="text/javascript" src="/admin_store/scripts/showlist.js"></script>
+}
+
+@section body{
+    <h1 class="rightH1">
+        店铺管理 &gt;&gt; 配送模板列表
+        <div class="right"><a href="@Url.Action("addstoreshiptemplate")" class="menuBT"><img src="/admin_store/images/add.jpg" />添加</a>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </h1>
+<div class="table_top"></div>
+
+<div class="dataList">
+<table width="100%">
+<thead>
+<tr>
+<th width="4"></th>
+<th align="left">标题</th>
+<th width="80" align="left">免运费</th>
+<th width="80" align="left">计费类型</th>
+<th width="136" align="left">管理操作</th>
+</tr>
+</thead>
+<tbody>
+    @foreach(StoreShipTemplateInfo info in Model.StoreShipTemplateList)
+    {
+<tr>
+<td></td>
+<td>@info.Title</td>
+<td>
+@if (info.Free == 0)
+{
+    @:否
+}
+else
+{
+    @:是
+}
+</td>
+<td>
+@if (info.Type == 0)
+{
+    @:按件计算
+}
+else
+{
+    @:按重量计算
+}
+</td>
+<td>
+    <a href="@Url.Action("storeshipfeelist", new { storeSTid = info.StoreSTid })" class="editOperate">[配送费用]</a>
+    <a href="@Url.Action("editstoreshiptemplate", new { storeSTid = info.StoreSTid })" class="editOperate">[修改]</a>
+    <a href="@Url.Action("delstoreshiptemplate", new { storeSTid = info.StoreSTid })" class="deleteOperate">[删除]</a>
+  </td>
+</tr>
+    }
+</tbody>
+</table>
+</div>
+
+<div class="table_bottom"></div>
+    }

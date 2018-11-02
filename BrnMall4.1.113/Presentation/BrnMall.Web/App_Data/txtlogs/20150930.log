@@ -1,0 +1,3 @@
+Log Entry : 2015年09月30日 13:09:01
+方法:Void ValidateString(System.String, System.String, System.Web.Util.RequestValidationSource),异常信息:从客户端(returnUrl="/</script><script src...")中检测到有潜在危险的 Request.QueryString 值。
+------------------------------------

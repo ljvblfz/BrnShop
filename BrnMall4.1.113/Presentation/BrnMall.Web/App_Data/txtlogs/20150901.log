@@ -1,0 +1,17 @@
+Log Entry : 2015年09月01日 08:27:36
+方法:Void EnsureGeneratedCode(),异常信息:遇到的结束标记“div”没有匹配的起始标记。您的起始标记/结束标记是否匹配?
+
+------------------------------------
+Log Entry : 2015年09月01日 08:31:34
+方法:Void EnsureGeneratedCode(),异常信息:遇到的结束标记“div”没有匹配的起始标记。您的起始标记/结束标记是否匹配?
+
+------------------------------------
+Log Entry : 2015年09月01日 10:57:22
+方法:System.Data.DataColumn GetDataColumn(System.String),异常信息:列“brandid”不属于表 Table。
+------------------------------------
+Log Entry : 2015年09月01日 12:22:02
+方法:System.CodeDom.Compiler.CompilerResults Compile(),异常信息:c:\Users\zm\Desktop\工作\BrnMall\Presentation\BrnMall.Web\views\home\index.cshtml(57): error CS1061: “BrnMall.Core.AdvertInfo”不包含“Body”的定义，并且找不到可接受类型为“BrnMall.Core.AdvertInfo”的第一个参数的扩展方法“Body”(是否缺少 using 指令或程序集引用?)
+------------------------------------
+Log Entry : 2015年09月01日 18:41:16
+方法:System.Data.DataColumn GetDataColumn(System.String),异常信息:列“type”不属于表 Table。
+------------------------------------

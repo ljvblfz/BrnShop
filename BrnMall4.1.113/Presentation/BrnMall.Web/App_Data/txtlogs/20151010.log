@@ -1,0 +1,9 @@
+Log Entry : 2015年10月10日 09:26:36
+方法:Void OnError(System.Data.SqlClient.SqlException, Boolean, System.Action`1[System.Action]),异常信息:无法绑定由多个部分组成的标识符 "15users.uid"。
+------------------------------------
+Log Entry : 2015年10月10日 09:26:51
+方法:Void OnError(System.Data.SqlClient.SqlException, Boolean, System.Action`1[System.Action]),异常信息:无法绑定由多个部分组成的标识符 "15users.uid"。
+------------------------------------
+Log Entry : 2015年10月10日 10:24:59
+方法:Void OnError(System.Data.SqlClient.SqlException, Boolean, System.Action`1[System.Action]),异常信息:必须声明标量变量 "@provinceid"。
+------------------------------------

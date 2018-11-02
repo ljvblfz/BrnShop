@@ -1,0 +1,15 @@
+C:\Users\zm\Desktop\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.EmailStrategy.DotNet.dll
+C:\Users\zm\Desktop\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.EmailStrategy.DotNet.pdb
+C:\Users\zm\Desktop\BrnMall\Strategies\BrnMall.EmailStrategy.DotNet\obj\Release\BrnMall.EmailStrategy.DotNet.csprojResolveAssemblyReference.cache
+C:\Users\zm\Desktop\BrnMall\Strategies\BrnMall.EmailStrategy.DotNet\obj\Release\BrnMall.EmailStrategy.DotNet.dll
+C:\Users\zm\Desktop\BrnMall\Strategies\BrnMall.EmailStrategy.DotNet\obj\Release\BrnMall.EmailStrategy.DotNet.pdb
+C:\Users\zm\Desktop\工作\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.EmailStrategy.DotNet.dll
+C:\Users\zm\Desktop\工作\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.EmailStrategy.DotNet.pdb
+C:\Users\zm\Desktop\工作\BrnMall\Strategies\BrnMall.EmailStrategy.DotNet\obj\Release\BrnMall.EmailStrategy.DotNet.csprojResolveAssemblyReference.cache
+C:\Users\zm\Desktop\工作\BrnMall\Strategies\BrnMall.EmailStrategy.DotNet\obj\Release\BrnMall.EmailStrategy.DotNet.dll
+C:\Users\zm\Desktop\工作\BrnMall\Strategies\BrnMall.EmailStrategy.DotNet\obj\Release\BrnMall.EmailStrategy.DotNet.pdb
+D:\工作\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.EmailStrategy.DotNet.dll
+D:\工作\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.EmailStrategy.DotNet.pdb
+D:\工作\BrnMall\Strategies\BrnMall.EmailStrategy.DotNet\obj\Release\BrnMall.EmailStrategy.DotNet.csprojResolveAssemblyReference.cache
+D:\工作\BrnMall\Strategies\BrnMall.EmailStrategy.DotNet\obj\Release\BrnMall.EmailStrategy.DotNet.dll
+D:\工作\BrnMall\Strategies\BrnMall.EmailStrategy.DotNet\obj\Release\BrnMall.EmailStrategy.DotNet.pdb

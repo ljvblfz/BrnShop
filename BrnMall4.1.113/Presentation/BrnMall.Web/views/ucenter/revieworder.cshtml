@@ -1,0 +1,155 @@
+﻿@model BrnMall.Web.Models.ReviewOrderModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>商品评价-@{@WorkContext.MallConfig.SiteTitle}</title>
+    @Html.Raw(WorkContext.MallConfig.SEOKeyword)
+    @Html.Raw(WorkContext.MallConfig.SEODescription)
+    <link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="@{@WorkContext.CSSCDN}/css/ucenter.css" rel="stylesheet" type="text/css" />
+    <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/common.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/ucenter.order.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        uid = @WorkContext.Uid;
+        isGuestSC = @WorkContext.MallConfig.IsGuestSC;
+        scSubmitType = @WorkContext.MallConfig.SCSubmitType;
+    </script>
+</head>
+
+<body>
+@Html.Partial("_header")
+
+<div class="bigBox" id="member">
+<div class="box">
+@Html.Partial("_menu")
+<div id="memberR">
+    <h2 id="memberRT">商品评价</h2>
+    <table width="100%" border="0" cellspacing="0" class="dingdan">
+        <thead>
+          <tr>
+            <th valign="bottom">商品信息</th>
+            <th width="150px" align="left">评价状态</th>
+            <th width="150px" align="left">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+         @foreach (OrderProductInfo info in Model.OrderProductList)
+         {
+           <tr>
+                <td>
+                    <div class="proList">
+                    <img src="@{@WorkContext.ImageCDN}/upload/store/@info.StoreId/product/show/thumb60_60/@info.ShowImg" width="50" height="50" /><a href="@Url.Action("product", "catalog", new RouteValueDictionary { { "pid", info.Pid } })">@info.Name<br /></a>
+                    @*<div class="memberStar"><div class="star"><span class="star_yellow" style=" width:80%;">&nbsp;</span></div><a href="#">10267评价</a></div>*@
+                    <div class="clear"></div></div>
+                </td>
+                <td id="reviewState@{@info.RecordId}">
+                    @if (info.IsReview == 1)
+                    {
+                        @:已评价
+                    }
+                    else
+                    {
+                        @:未评价
+                    }
+                </td>
+                <td id="reviewOperate@{@info.RecordId}">
+                @if (info.IsReview == 0)
+                {
+                <a href="javascript:openReviewProductBlock(@info.RecordId)">评价</a>
+                }
+                </td>
+            </tr>
+         }
+        </tbody>
+    </table>
+    <div id="reviewProductBlock" style=" display:none;">
+       <form id="reviewProductFrom" name="reviewProductFrom" action="">
+       <input type="hidden" name="oid" value="@Model.OrderInfo.Oid" />
+       <input type="hidden" name="recordId" value="" />
+       <table width="100%" border="0" cellspacing="0" cellpadding="0" style=" margin:15px 0;">
+          <tr>
+            <td width="80" height="35">评价等级:</td>
+            <td>
+            <div class="left"><input type="radio" value="1" name="star" checked="checked"/></div><div class="star"><span class="star_yellow" style=" width:20%;">&nbsp;</span></div>
+            <div class="left"><input type="radio" value="2" name="star" /></div><div class="star"><span class="star_yellow" style=" width:40%;">&nbsp;</span></div>
+            <div class="left"><input type="radio" value="3" name="star" /></div><div class="star"><span class="star_yellow" style=" width:60%;">&nbsp;</span></div>
+            <div class="left"><input type="radio" value="4" name="star" /></div><div class="star"><span class="star_yellow" style=" width:78%;">&nbsp;</span></div>
+            <div class="left"><input type="radio" value="5" name="star" /></div><div class="star"><span class="star_yellow" style=" width:100%;">&nbsp;</span></div>
+            <div class="clear"></div>
+            </td>
+          </tr>
+          <tr><td height="100">评论内容:</td><td><textarea style="height:100px; width:80%" name="message"></textarea></td></tr>
+          <tr><td height="35">&nbsp;</td><td><input onclick="reviewProduct()" type="button" class="redBT" value="评价" style=" padding:4px 6px;" /></td></tr>
+        </table>
+        </form>
+     </div>
+
+
+    <h2 style="font-size:16px; position:relative; height:35px; line-height:35px; ">店铺评价</h2>
+     <div id="reviewStoreBlock">
+       <form id="reviewStoreFrom" name="reviewStoreFrom" action="">
+       <input type="hidden" name="oid" value="@Model.OrderInfo.Oid" />
+       <table width="100%" border="0" cellspacing="0" cellpadding="0" style=" margin:15px 0;">
+          <tr>
+            <td width="80" height="35">商品描述评分:</td>
+            <td id="descriptionStarBlcok">
+            <div class="left"><input type="radio" value="1" name="descriptionStar" checked="checked"/></div><div class="star"><span class="star_yellow" style=" width:20%;">&nbsp;</span></div>
+            <div class="left"><input type="radio" value="2" name="descriptionStar" /></div><div class="star"><span class="star_yellow" style=" width:40%;">&nbsp;</span></div>
+            <div class="left"><input type="radio" value="3" name="descriptionStar" /></div><div class="star"><span class="star_yellow" style=" width:60%;">&nbsp;</span></div>
+            <div class="left"><input type="radio" value="4" name="descriptionStar" /></div><div class="star"><span class="star_yellow" style=" width:78%;">&nbsp;</span></div>
+            <div class="left"><input type="radio" value="5" name="descriptionStar" /></div><div class="star"><span class="star_yellow" style=" width:100%;">&nbsp;</span></div>
+            <div class="clear"></div>
+            </td>
+          </tr>
+          <tr>
+            <td width="80" height="35">商家服务评分:</td>
+            <td id="serviceStarBlcok">
+            <div class="left"><input type="radio" value="1" name="serviceStar" checked="checked"/></div><div class="star"><span class="star_yellow" style=" width:20%;">&nbsp;</span></div>
+            <div class="left"><input type="radio" value="2" name="serviceStar" /></div><div class="star"><span class="star_yellow" style=" width:40%;">&nbsp;</span></div>
+            <div class="left"><input type="radio" value="3" name="serviceStar" /></div><div class="star"><span class="star_yellow" style=" width:60%;">&nbsp;</span></div>
+            <div class="left"><input type="radio" value="4" name="serviceStar" /></div><div class="star"><span class="star_yellow" style=" width:78%;">&nbsp;</span></div>
+            <div class="left"><input type="radio" value="5" name="serviceStar" /></div><div class="star"><span class="star_yellow" style=" width:100%;">&nbsp;</span></div>
+            <div class="clear"></div>
+            </td>
+          </tr>
+          <tr>
+            <td width="80" height="35">商家配送评分:</td>
+            <td id="shipStarBlcok">
+            <div class="left"><input type="radio" value="1" name="shipStar" checked="checked"/></div><div class="star"><span class="star_yellow" style=" width:20%;">&nbsp;</span></div>
+            <div class="left"><input type="radio" value="2" name="shipStar" /></div><div class="star"><span class="star_yellow" style=" width:40%;">&nbsp;</span></div>
+            <div class="left"><input type="radio" value="3" name="shipStar" /></div><div class="star"><span class="star_yellow" style=" width:60%;">&nbsp;</span></div>
+            <div class="left"><input type="radio" value="4" name="shipStar" /></div><div class="star"><span class="star_yellow" style=" width:78%;">&nbsp;</span></div>
+            <div class="left"><input type="radio" value="5" name="shipStar" /></div><div class="star"><span class="star_yellow" style=" width:100%;">&nbsp;</span></div>
+            <div class="clear"></div>
+            </td>
+          </tr>
+          <tr><td height="35">&nbsp;</td><td><input id="reviewStoreBut" onclick="reviewStore()" type="button" class="redBT" value="评价" style=" padding:4px 6px;" /></td></tr>
+        </table>
+        </form>
+     </div>
+
+    @if (Model.StoreReviewInfo != null)
+    {
+     <script type="text/javascript">
+         $(document.getElementById("descriptionStarBlcok").getElementsByTagName("input")).find("[value="+@Model.StoreReviewInfo.DescriptionStar+"]");
+         $(document.getElementById("serviceStarBlcok").getElementsByTagName("input")).find("[value="+@Model.StoreReviewInfo.ServiceStar+"]");
+         $(document.getElementById("shipStarBlcok").getElementsByTagName("input")).find("[value="+@Model.StoreReviewInfo.ShipStar+"]");
+         $("#reviewStoreBut").remove();
+     </script>
+    }
+</div>
+
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+
+
+@Html.Partial("_footer")
+</body>
+</html>

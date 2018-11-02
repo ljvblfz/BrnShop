@@ -1,0 +1,21 @@
+﻿@if (WorkContext.StoreInfo.Banner.Length > 0)
+{
+<div id="DPbanner" style="zoom:1; text-align:center; overflow:hidden;">
+<a href="javascript:void(0)"><img src="@{@WorkContext.ImageCDN}/upload/store/@WorkContext.StoreId/banner/@WorkContext.StoreInfo.Banner" width="1920" height="500" /></a>
+</div>
+<script type="text/javascript">
+    var storeBanner = document.getElementById("DPbanner");
+    var bannerImg = storeBanner.getElementsByTagName("img")[0];
+    var bodyW = document.body.offsetWidth;
+    var imgW = bannerImg.offsetWidth;
+    var imgH = bannerImg.offsetHeight;
+
+    if (bodyW <= imgW) {
+        storeBanner.style.width = bodyW + "px";
+        storeBanner.style.height = imgH + "px";
+        var aTag = storeBanner.getElementsByTagName("a")[0];
+        aTag.style.position = "absolute";
+        aTag.style.left = (-(imgW - bodyW) / 2) + "px";
+    }
+</script>
+}

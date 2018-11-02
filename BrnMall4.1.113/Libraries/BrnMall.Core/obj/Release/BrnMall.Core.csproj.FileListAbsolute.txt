@@ -1,0 +1,15 @@
+C:\Users\zm\Desktop\BrnMall\Libraries\BrnMall.Core\bin\Release\BrnMall.Core.dll
+C:\Users\zm\Desktop\BrnMall\Libraries\BrnMall.Core\bin\Release\BrnMall.Core.pdb
+C:\Users\zm\Desktop\BrnMall\Libraries\BrnMall.Core\obj\Release\BrnMall.Core.csprojResolveAssemblyReference.cache
+C:\Users\zm\Desktop\BrnMall\Libraries\BrnMall.Core\obj\Release\BrnMall.Core.dll
+C:\Users\zm\Desktop\BrnMall\Libraries\BrnMall.Core\obj\Release\BrnMall.Core.pdb
+C:\Users\zm\Desktop\工作\BrnMall\Libraries\BrnMall.Core\bin\Release\BrnMall.Core.dll
+C:\Users\zm\Desktop\工作\BrnMall\Libraries\BrnMall.Core\bin\Release\BrnMall.Core.pdb
+C:\Users\zm\Desktop\工作\BrnMall\Libraries\BrnMall.Core\obj\Release\BrnMall.Core.dll
+C:\Users\zm\Desktop\工作\BrnMall\Libraries\BrnMall.Core\obj\Release\BrnMall.Core.pdb
+C:\Users\zm\Desktop\工作\BrnMall\Libraries\BrnMall.Core\obj\Release\BrnMall.Core.csprojResolveAssemblyReference.cache
+D:\工作\BrnMall\Libraries\BrnMall.Core\bin\Release\BrnMall.Core.dll
+D:\工作\BrnMall\Libraries\BrnMall.Core\bin\Release\BrnMall.Core.pdb
+D:\工作\BrnMall\Libraries\BrnMall.Core\obj\Release\BrnMall.Core.dll
+D:\工作\BrnMall\Libraries\BrnMall.Core\obj\Release\BrnMall.Core.pdb
+D:\工作\BrnMall\Libraries\BrnMall.Core\obj\Release\BrnMall.Core.csprojResolveAssemblyReference.cache

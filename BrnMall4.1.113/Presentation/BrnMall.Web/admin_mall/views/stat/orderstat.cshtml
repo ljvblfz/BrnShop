@@ -1,0 +1,133 @@
+﻿@model BrnMall.Web.MallAdmin.Models.OrderStatModel
+           
+@section header{
+    <title>订单统计</title>
+    <link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css" />
+    <!--[if lte IE 8]><script type="text/javascript" src="/admin_mall/scripts/excanvas.js"></script><![endif]-->
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.flot.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.flot.pie.js"></script>
+    <link rel="stylesheet" type="text/css"  href="/components/jbox/Skins/Default/jbox.css"/>
+    <script type="text/javascript" src="/components/jbox/jquery.jBox-2.3.min.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/selectlist.js"></script>
+    <script type="text/javascript" src="/components/my97datepicker/WdatePicker.js"></script>
+    <script type="text/javascript">
+     @{
+         if (Model.StatItemList.Rows.Count > 0)
+         {
+             StringBuilder dataset = new StringBuilder();
+             foreach (DataRow row in Model.StatItemList.Rows)
+             {
+                 string state = "";
+                 OrderState orderState = (OrderState)TypeHelper.ObjectToInt(row["orderstate"]);
+                 switch (orderState)
+                 {
+                     case OrderState.WaitPaying:
+                         state = "等待付款";
+                         break;
+                     case OrderState.Confirming:
+                         state = "待确认";
+                         break;
+                     case OrderState.Confirmed:
+                         state = "已确认";
+                         break;
+                     case OrderState.PreProducting:
+                         state = "备货中";
+                         break;
+                     case OrderState.Sended:
+                         state = "已发货";
+                         break;
+                     case OrderState.Received:
+                         state = "已收货";
+                         break;
+                     case OrderState.Cancelled:
+                         state = "取消";
+                         break;
+                     case OrderState.Locked:
+                         state = "锁定";
+                         break;
+                     default:
+                         state = "未知状态";
+                         break;
+                 }
+                 dataset.AppendFormat("{0}label:'{1}：{2}{3}',data:'{2}'{4},", "{", state, row["value"], Model.StatType == 0 ? "个" : "元", "}");
+             }
+             @:var dataset = [@Html.Raw(dataset.Remove(dataset.Length - 1, 1).ToString())];
+             }
+         else
+         {
+         @:var dataset = [];
+             }
+     }
+    var options = {
+        series: {
+            pie: {
+                show: true,
+                label: {
+                    show: true,
+                    radius: 0.8,
+                    background: {
+                        opacity: 0.6,
+                        color: '#000'
+                    }
+                }
+            }
+        }
+    };
+
+    $(function () {
+        $("#StatType").find("option[value=@Model.StatType]").attr("selected", true)
+        $.plot($("#flot-placeholder"), dataset, options);
+    });
+    </script>
+}
+@section body{
+    @using (Html.BeginForm())
+    {
+    <h1 class="rightH1">
+        报表统计 &gt;&gt; 订单统计
+        <div class="right">
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </h1>
+    <div class="dataListSearch">
+        <table height="32">
+            <tbody>
+                <tr>
+                    <td width="35"><img id="searchImg" src="/admin_mall/images/search1.gif" /></td>
+                    <td>商品店铺：</td>
+                    <td width="100">
+                    <div class="selectBt">
+                        <input type="button" value="@Model.StoreName" onclick="openStoreSelectLayer(this)"  style="height:22px; line-height:22px;background:url(/admin_mall/images/selectbgico.gif) no-repeat 6px center; padding-left:22px; padding-right:10px;"/>
+                        <input type="hidden" class="StoreId" id="StoreId" name="StoreId" value="@Model.StoreId" />
+                        <input type="hidden" class="StoreName" id="StoreName" name="StoreName" value="@Model.StoreName" />
+                    </div>
+                    </td>
+                    <td>统计类型：</td>
+                    <td width="90">
+                    <select name="StatType" id="StatType">
+                    <option value="0">订单数</option>
+                    <option value="1">订单合计</option>  
+                    </select>
+                    </td>
+                    <td>开始时间：</td>
+                    <td width="130">
+          	        @Html.TextBox("StartTime", Model.StartTime, new { height = "18", onfocus = "WdatePicker({el:'StartTime'})" })
+                    </td>
+                    <td>&nbsp;&nbsp;&nbsp;结束时间：</td>
+                    <td width="130">
+          	        @Html.TextBox("EndTime", Model.EndTime, new { height = "18", onfocus = "WdatePicker({el:'EndTime'})" })
+                    </td>
+                    <td><input id="Search" name="Search" type="image" class="searchBut submit" src="/admin_mall/images/s.jpg" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="dataList">
+        <br />
+        <div id="flot-placeholder" style="width: 600px; height: 400px; margin-left: 100px;"></div>
+        <br />
+    </div>
+    }
+}

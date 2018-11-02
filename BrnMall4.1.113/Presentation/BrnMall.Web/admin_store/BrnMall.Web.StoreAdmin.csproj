@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5C4D1E31-87C8-4BC3-AF1E-7EA02A4843E6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BrnMall.Web.StoreAdmin</RootNamespace>
+    <AssemblyName>BrnMall.Web.StoreAdmin</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AreaRegistration.cs" />
+    <Compile Include="controllers\BrandController.cs" />
+    <Compile Include="controllers\CategoryController.cs" />
+    <Compile Include="controllers\CouponController.cs" />
+    <Compile Include="controllers\HomeController.cs" />
+    <Compile Include="controllers\OrderController.cs" />
+    <Compile Include="controllers\ProductConsultController.cs" />
+    <Compile Include="controllers\ProductController.cs" />
+    <Compile Include="controllers\ProductReviewController.cs" />
+    <Compile Include="controllers\PromotionController.cs" />
+    <Compile Include="controllers\StatController.cs" />
+    <Compile Include="controllers\StoreController.cs" />
+    <Compile Include="controllers\ToolController.cs" />
+    <Compile Include="models\CouponModel.cs" />
+    <Compile Include="models\HomeModel.cs" />
+    <Compile Include="models\OrderModel.cs" />
+    <Compile Include="models\ProductConsultModel.cs" />
+    <Compile Include="models\ProductModel.cs" />
+    <Compile Include="models\ProductReviewModel.cs" />
+    <Compile Include="models\PromotionModel.cs" />
+    <Compile Include="models\StatModel.cs" />
+    <Compile Include="models\StoreModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\site.css" />
+    <Content Include="images\a.jpg" />
+    <Content Include="images\add.jpg" />
+    <Content Include="images\bg.jpg" />
+    <Content Include="images\bottombg.jpg" />
+    <Content Include="images\bt_right.jpg" />
+    <Content Include="images\cancel.jpg" />
+    <Content Include="images\delete.jpg" />
+    <Content Include="images\delete2.gif" />
+    <Content Include="images\edit.jpg" />
+    <Content Include="images\goback.jpg" />
+    <Content Include="images\ico1.jpg" />
+    <Content Include="images\li.jpg" />
+    <Content Include="images\li1.jpg" />
+    <Content Include="images\logo.jpg" />
+    <Content Include="images\menubg.jpg" />
+    <Content Include="images\menubg_bottom.jpg" />
+    <Content Include="images\menubg_top.jpg" />
+    <Content Include="images\menuli_bg.jpg" />
+    <Content Include="images\menuli_bg_hot.jpg" />
+    <Content Include="images\nav_bg_hot.jpg" />
+    <Content Include="images\progressbar.gif" />
+    <Content Include="images\refresh.jpg" />
+    <Content Include="images\right_ico.jpg" />
+    <Content Include="images\s.jpg" />
+    <Content Include="images\search1.gif" />
+    <Content Include="images\selectbg.gif" />
+    <Content Include="images\selectbgico.gif" />
+    <Content Include="images\submit.jpg" />
+    <Content Include="images\tagbg-left.jpg" />
+    <Content Include="images\tagbg.jpg" />
+    <Content Include="images\tip.gif" />
+    <Content Include="images\top_bg.jpg" />
+    <Content Include="images\tree_close.gif" />
+    <Content Include="images\tree_open.gif" />
+    <Content Include="scripts\excanvas.js" />
+    <Content Include="scripts\jquery.flot.js" />
+    <Content Include="scripts\jquery.flot.pie.js" />
+    <Content Include="scripts\jquery.js" />
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\product.js" />
+    <Content Include="scripts\region.js" />
+    <Content Include="scripts\selectlist.js" />
+    <Content Include="scripts\showlist.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="views\coupon\addcoupontype.cshtml" />
+    <None Include="views\coupon\couponlist.cshtml" />
+    <None Include="views\coupon\couponproductlist.cshtml" />
+    <None Include="views\coupon\coupontypelist.cshtml" />
+    <None Include="views\coupon\sendcoupon.cshtml" />
+    <None Include="views\coupon\showcoupontype.cshtml" />
+    <None Include="views\home\index.cshtml" />
+    <None Include="views\home\menu.cshtml" />
+    <None Include="views\home\navbar.cshtml" />
+    <None Include="views\home\storeruninfo.cshtml" />
+    <None Include="views\order\afterservicelist.cshtml" />
+    <None Include="views\order\backorderafterservice.cshtml" />
+    <None Include="views\order\checkorderafterservice.cshtml" />
+    <None Include="views\order\orderafterserviceinfo.cshtml" />
+    <None Include="views\order\orderinfo.cshtml" />
+    <None Include="views\order\orderlist.cshtml" />
+    <None Include="views\order\printorder.cshtml" />
+    <None Include="views\order\refundlist.cshtml" />
+    <None Include="views\order\sendorderproduct.cshtml" />
+    <None Include="views\order\updateorderdiscount.cshtml" />
+    <None Include="views\order\updateordershipfee.cshtml" />
+    <None Include="views\productconsult\productconsultlist.cshtml" />
+    <None Include="views\productconsult\reply.cshtml" />
+    <None Include="views\productreview\productreviewlist.cshtml" />
+    <None Include="views\productreview\productreviewreplylist.cshtml" />
+    <None Include="views\product\addproduct.cshtml" />
+    <None Include="views\product\addsku.cshtml" />
+    <None Include="views\product\addtimeproduct.cshtml" />
+    <None Include="views\product\editproduct.cshtml" />
+    <None Include="views\product\edittimeproduct.cshtml" />
+    <None Include="views\product\onsaleproductlist.cshtml" />
+    <None Include="views\product\outsaleproductlist.cshtml" />
+    <None Include="views\product\productimagelist.cshtml" />
+    <None Include="views\product\recyclebinproductlist.cshtml" />
+    <None Include="views\product\relateproductlist.cshtml" />
+    <None Include="views\product\timeproductlist.cshtml" />
+    <None Include="views\promotion\addbuysendpromotion.cshtml" />
+    <None Include="views\promotion\addfullcutpromotion.cshtml" />
+    <None Include="views\promotion\addfullsendpromotion.cshtml" />
+    <None Include="views\promotion\addgiftpromotion.cshtml" />
+    <None Include="views\promotion\addsinglepromotion.cshtml" />
+    <None Include="views\promotion\addsuitpromotion.cshtml" />
+    <None Include="views\promotion\buysendproductlist.cshtml" />
+    <None Include="views\promotion\buysendpromotionlist.cshtml" />
+    <None Include="views\promotion\editbuysendpromotion.cshtml" />
+    <None Include="views\promotion\editfullcutpromotion.cshtml" />
+    <None Include="views\promotion\editfullsendpromotion.cshtml" />
+    <None Include="views\promotion\editgiftpromotion.cshtml" />
+    <None Include="views\promotion\editsinglepromotion.cshtml" />
+    <None Include="views\promotion\editsuitpromotion.cshtml" />
+    <None Include="views\promotion\fullcutproductlist.cshtml" />
+    <None Include="views\promotion\fullcutpromotionlist.cshtml" />
+    <None Include="views\promotion\fullsendproductlist.cshtml" />
+    <None Include="views\promotion\fullsendpromotionlist.cshtml" />
+    <None Include="views\promotion\giftlist.cshtml" />
+    <None Include="views\promotion\giftpromotionlist.cshtml" />
+    <None Include="views\promotion\singlepromotionlist.cshtml" />
+    <None Include="views\promotion\suitproductlist.cshtml" />
+    <None Include="views\promotion\suitpromotionlist.cshtml" />
+    <None Include="views\shared\error.cshtml" />
+    <None Include="views\shared\prompt.cshtml" />
+    <None Include="views\shared\_layout.cshtml" />
+    <None Include="views\stat\productstat.cshtml" />
+    <None Include="views\stat\saleproductlist.cshtml" />
+    <None Include="views\stat\orderstat.cshtml" />
+    <None Include="views\store\addstoreclass.cshtml" />
+    <None Include="views\store\addstoreshipfee.cshtml" />
+    <None Include="views\store\addstoreshiptemplate.cshtml" />
+    <None Include="views\store\editstore.cshtml" />
+    <None Include="views\store\editstoreclass.cshtml" />
+    <None Include="views\store\editstoreshipfee.cshtml" />
+    <None Include="views\store\editstoreshiptemplate.cshtml" />
+    <None Include="views\store\storeclasslist.cshtml" />
+    <None Include="views\store\storeshipfeelist.cshtml" />
+    <None Include="views\store\storeshiptemplatelist.cshtml" />
+    <None Include="views\Web.config" />
+    <None Include="views\_ViewStart.cshtml" />
+    <None Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Libraries\BrnMall.Core\BrnMall.Core.csproj">
+      <Project>{089949bc-b250-42f0-8853-fada0c2a61ab}</Project>
+      <Name>BrnMall.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libraries\BrnMall.Services\BrnMall.Services.csproj">
+      <Project>{f0648a58-1818-4760-a26c-010a7e6b6e75}</Project>
+      <Name>BrnMall.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BrnMall.Web.Framework\BrnMall.Web.Framework.csproj">
+      <Project>{d28523f3-3c46-429f-8dd4-6bbf2a2d57c8}</Project>
+      <Name>BrnMall.Web.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

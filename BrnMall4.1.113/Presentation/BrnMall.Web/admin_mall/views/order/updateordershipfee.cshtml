@@ -1,0 +1,49 @@
+﻿@model BrnMall.Web.MallAdmin.Models.UpdateOrderShipFeeModel
+
+@section header{
+    <title>更新订单配送费用</title>
+    <link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css"/>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.validate.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.validate.unobtrusive.js"></script>
+}
+
+@section body{
+<h1 class="rightH1">
+订单管理 &gt;&gt;更新订单配送费用 
+<div class="right">
+<a href="@Url.Action("orderinfo", new { oid = ((OrderInfo)ViewData["orderInfo"]).Oid })" class="menuBT"><img src="/admin_mall/images/goback.jpg"/>返回订单</a>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</h1>
+@using (Html.BeginForm())
+{
+<div class="addTable">
+<table width="100%">
+    <tr>
+    <td width="80px" align="right">配送费用：</td>
+    <td>@Html.TextBoxFor(x => x.ShipFee, new { @class = "input", size = "45" })@Html.ValidationMessageFor(x => x.ShipFee)</td>
+    </tr>
+    <tr>
+    <td align="right">&nbsp;</td>
+    <td>
+    <a href="" class="addBt" id="sumbitBut" ><img src="/admin_mall/images/submit.jpg" /></a>
+        <script type="text/javascript">
+            $(function () {
+                $("#sumbitBut").click(function () {
+                    $("form:first").submit();
+                    return false;
+                })
+            });
+        </script>
+    </td>
+    </tr>
+  <tr>
+    <td align="right">&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+</table>
+</div>
+}
+}

@@ -1,0 +1,78 @@
+﻿@model BrnMall.Web.MallAdmin.Models.StoreClassModel
+           
+@section header{
+    <title>添加店铺分类</title>
+    <link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css"/>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.validate.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.validate.unobtrusive.js"></script>
+}
+@section body{
+    <h1 class="rightH1">
+        店铺管理 &gt;&gt; 添加店铺分类
+        <div class="right">
+            <a href="@Html.Raw(ViewData["referer"].ToString())" class="menuBT"><img src="/admin_mall/images/goback.jpg" />返回列表</a>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </h1>
+    <div class="addTable">
+        @using (Html.BeginForm())
+        {
+            <table width="100%">
+                <tr>
+                    <td width="76px" align="right">分类名称：</td>
+                    <td>@Html.TextBoxFor(x => x.StoreClassName, new { @class = "input", size = "35" })@Html.ValidationMessageFor(x => x.StoreClassName)
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        所属分类：
+                    </td>
+                    <td>
+                    <select data-val="true" data-val-number="字段 ParentId 必须是一个数字。" data-val-range="请选择分类" data-val-range-max="2147483647" data-val-range-min="0" data-val-required="ParentId 字段是必需的。" id="ParentId" name="ParentId">
+                        <option @if (0 == Model.ParentId){<text>selected="selected"</text>} value="0">顶层分类</option>
+                        @foreach (StoreClassInfo info in ViewData["storeClassList"] as List<StoreClassInfo>)
+                        {
+                        <option @if (info.StoreCid == Model.ParentId){<text>selected="selected"</text>} value="@info.StoreCid">@Html.Raw(CommonHelper.GetHtmlBS(info.Layer - 1)) @info.Name</option>
+                        }
+                    </select>
+                    @Html.ValidationMessageFor(x => x.ParentId)
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        排序：
+                    </td>
+                    <td>@Html.TextBoxFor(x => x.DisplayOrder, new { @class = "input", size = "3" })@Html.ValidationMessageFor(x => x.DisplayOrder)
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        &nbsp;
+                    </td>
+                    <td>
+                        <a href="" class="addBt" id="sumbitBut">
+                            <img src="/admin_mall/images/submit.jpg" /></a>
+                        <script type="text/javascript">
+                            $(function () {
+                                $("#sumbitBut").click(function () {
+                                    $("form:first").submit();
+                                    return false;
+                                })
+                            });
+                        </script>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+}

@@ -1,0 +1,49 @@
+﻿@model BrnMall.Web.MallAdmin.Models.ShipCompanyListModel
+
+@section header{
+<title>配送公司列表</title>
+<link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css"/>
+<script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+<script type="text/javascript" src="/admin_mall/scripts/showlist.js"></script>
+}
+
+@section body{
+<h1 class="rightH1">
+系统设置 &gt;&gt; 配送公司
+<div class="right">
+<a href="@Url.Action("add")" class="menuBT"><img src="/admin_mall/images/add.jpg"/>添加</a>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</h1>
+<div class="table_top"></div>
+
+<div class="dataList">
+<table width="100%">
+<thead>
+  <tr>
+    <th width="10"></th>
+    <th align="left">名称</th>
+    <th width="80" align="left">排序</th>  
+    <th width="76" align="left">管理操作</th>
+    </tr>
+</thead>
+  <tbody>
+  @foreach (ShipCompanyInfo info in Model.ShipCompanyList)
+  {
+  <tr>
+    <td align="center"></td>
+    <td>@info.Name</td>
+    <td>@info.DisplayOrder</td>
+    <td>
+        @Html.ActionLink("[编辑]", "edit", new { shipCoId = info.ShipCoId }, new { @class = "editOperate" })
+        @Html.ActionLink("[删除]", "del", new { shipCoId = info.ShipCoId }, new { @class = "deleteOperate" })
+    </td>
+    </tr>
+  }
+</tbody>
+</table>
+</div>
+
+<div class="table_bottom"></div>
+}

@@ -1,0 +1,173 @@
+﻿@model BrnMall.Web.MallAdmin.Models.AdvertModel
+
+@section header{
+    <title>添加广告</title>
+    <link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css"/>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.validate.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.validate.unobtrusive.js"></script>
+    <script type="text/javascript" src="/components/my97datepicker/WdatePicker.js"></script>
+    <link type="text/css" rel="stylesheet" href="/components/webuploader/webuploader.css" />
+    <script type="text/javascript" src="/components/webuploader/webuploader.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            var uploader = WebUploader.create({
+                pick: '.uploadBut',
+                auto: true,
+                swf: '/components/webuploader/Uploader.swf',
+                server: '/malladmin/tool/upload?operation=uploadadvertimage',
+                fileVal: 'upload',
+                accept: {
+                    title: 'Images',
+                    extensions: '@ViewData["allowImgType"]',
+                    mimeTypes: 'image/*'
+                },
+                fileSingleSizeLimit: @ViewData["maxImgSize"]
+            });
+
+            uploader.on('uploadProgress', function(file, percentage) {
+                $(".uploadPreview").html("上传中...");
+            });
+
+            uploader.on('uploadSuccess', function(file, response) {
+                var data = response._raw;
+                if (data == "-1")
+                    $(".uploadPreview").html('图片不能为空');
+                else if (data == "-2")
+                    $(".uploadPreview").html('图片类型不允许');
+                else if (data == "-3")
+                    $(".uploadPreview").html('图片太大');
+                else {
+                    $(".uploadPreview").html("<img src=\"@WorkContext.ImageCDN/upload/adv/" + data + "\"  />");
+                    $("#Image").val(data);
+                }
+            });
+
+            uploader.on('uploadError', function(file) {
+                $(".uploadPreview").html("上传失败");
+            });
+
+        });
+    </script>
+}
+
+@section body{
+<h1 class="rightH1">
+广告管理 &gt;&gt; 添加广告
+<div class="right">
+<a href="@Html.Raw(ViewData["referer"].ToString())" class="menuBT"><img src="/admin_mall/images/goback.jpg"/>返回列表</a>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</h1>
+
+@using (Html.BeginForm())
+{
+<div class="addTable">
+<table width="100%">
+    <tr>
+    <td width="56px" align="right">位置：</td>
+    <td>@Html.DropDownListFor(x => x.AdPosId, ViewData["advertPositionList"] as List<SelectListItem>)@Html.ValidationMessageFor(x => x.AdPosId)</td>
+    </tr>
+          <tr>
+    <td align="right">标题：</td>
+    <td>@Html.TextBoxFor(x => x.Title, new { @class = "input", size = "35" })@Html.ValidationMessageFor(x => x.Title)</td>
+    </tr>
+   <tr>
+    <td align="right">图片：</td>
+    <td>
+
+        <div class="upload">
+            <div class="uploadPreview">
+                @if (!string.IsNullOrEmpty(Model.Image))
+                {
+                    <img src="@WorkContext.ImageCDN/upload/adv/@Model.Image" />
+                }
+                else
+                {
+                    @:暂无图片
+                }
+            </div>
+            <div class="left">
+                <div class="uploadProgressBar"></div>
+                <div class="uploadBut">选择图片</div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        @Html.TextBoxFor(x => x.Image, new { @class = "hide" })
+        @Html.ValidationMessageFor(x => x.Image)
+
+    </td>
+    </tr>
+    <tr id="urlTr">
+    <td align="right">网址：</td>
+    <td>@Html.TextBoxFor(x => x.Url, new { @class = "input", size = "35" })@Html.ValidationMessageFor(x => x.Url)</td>
+    </tr>
+    <tr>
+    <td align="right">扩展1：</td>
+    <td>@Html.TextBoxFor(x => x.ExtField1, new { @class = "input", size = "35" })@Html.ValidationMessageFor(x => x.ExtField1)</td>
+    </tr>
+        <tr>
+    <td align="right">扩展2：</td>
+    <td>@Html.TextBoxFor(x => x.ExtField2, new { @class = "input", size = "35" })@Html.ValidationMessageFor(x => x.ExtField2)</td>
+    </tr>
+        <tr>
+    <td align="right">扩展3：</td>
+    <td>@Html.TextBoxFor(x => x.ExtField3, new { @class = "input", size = "35" })@Html.ValidationMessageFor(x => x.ExtField3)</td>
+    </tr>
+        <tr>
+    <td align="right">扩展4：</td>
+    <td>@Html.TextBoxFor(x => x.ExtField4, new { @class = "input", size = "35" })@Html.ValidationMessageFor(x => x.ExtField4)</td>
+    </tr>
+        <tr>
+    <td align="right">扩展5：</td>
+    <td>@Html.TextBoxFor(x => x.ExtField5, new { @class = "input", size = "35" })@Html.ValidationMessageFor(x => x.ExtField5)</td>
+    </tr>
+        <tr>
+    <td align="right">时间：</td>
+    <td>
+        @Html.TextBoxFor(x => x.StartTime, new { @class = "input", size = "18", onfocus = "WdatePicker({el:'StartTime'})" })
+        至
+        @Html.TextBoxFor(x => x.EndTime, new { @class = "input", size = "18", onfocus = "WdatePicker({el:'EndTime'})" })
+        @Html.ValidationMessageFor(x => x.StartTime)
+        @Html.ValidationMessageFor(x => x.EndTime)
+    
+    </td>
+    </tr>
+            <tr>
+    <td align="right">排序：</td>
+    <td>@Html.TextBoxFor(x => x.DisplayOrder, new { @class = "input", size = "10" })@Html.ValidationMessageFor(x => x.DisplayOrder)</td>
+    </tr>
+    <tr>
+        <td align="right">状态：</td>
+        <td>
+            <p>
+                <label>@Html.RadioButtonFor(x => x.State, 0, new { @class = "checkbox" }) 隐藏</label>
+                <label>@Html.RadioButtonFor(x => x.State, 1, new { @class = "checkbox" }) 展示</label>
+                <br />
+            </p>
+        </td>
+    </tr>
+    <tr>
+    <td align="right">&nbsp;</td>
+    <td>
+    <a href="" class="addBt" id="sumbitBut" ><img src="/admin_mall/images/submit.jpg" /></a>
+            <script type="text/javascript">
+                $(function () {
+                    $("#sumbitBut").click(function () {
+                        $("form:first").submit();
+                        return false;
+                    })
+                });
+        </script>
+    </td>
+    </tr>
+      <tr>
+    <td align="right">&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+</table>
+</div>
+}
+}

@@ -1,0 +1,67 @@
+﻿@model BrnMall.Web.Models.OrderProductAfterServiceListModel
+@{
+    Layout = null;
+}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>售后服务-@{@WorkContext.MallConfig.SiteTitle}<</title>
+    @Html.Raw(WorkContext.MallConfig.SEOKeyword)
+    @Html.Raw(WorkContext.MallConfig.SEODescription)
+    <link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="@{@WorkContext.CSSCDN}/css/ucenter.css" rel="stylesheet" type="text/css" />
+    <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/common.js" type="text/javascript"></script>
+</head>
+
+<body>
+    @Html.Partial("_header")
+
+    <div class="bigBox" id="member">
+        <div class="box">
+            @Html.Partial("_menu")
+            <div id="memberR">
+                <h2 id="memberRT">售后服务</h2>
+
+                @foreach (OrderAfterServiceInfo info in Model.OrderAfterServiceList)
+                {
+                <table width="100%" border="0" cellspacing="0" class="dingdan">
+                    <thead>
+                        <tr>
+                            <th>操作</th>
+                            <th>时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>因为“@info.ApplyReason”从而申请“@if(info.Type==0){<text>退货</text>}else if(info.Type==1){<text>换货</text>}else if(info.Type==2){<text>维修</text>}”</td><td style="vertical-align:middle;">@info.ApplyTime</td></tr>
+                        @if (info.CheckTime > new DateTime(2000, 1, 1))
+                        {
+                            <tr><td>@info.CheckResult</td><td style="vertical-align:middle;">@info.CheckTime</td></tr>
+                        }
+                        @if(info.ShipCoId1 > 0)
+                        {
+                            <tr><td>您邮寄商品到商城。发货方式为 @info.ShipCoName1,单号为 @info.ShipSN1</td><td style="vertical-align:middle;">@info.SendTime</td></tr>
+                        }
+                        @if (info.ReceiveTime > new DateTime(2000,1,1))
+                        {
+                            <tr><td>商城已经收到您的商品</td><td style="vertical-align:middle;">@info.ReceiveTime</td></tr>
+                        }
+                        @if (info.ShipCoId2 > 0)
+                        {
+                            <tr><td>商城已经发货,请注意查收。发货方式为 @info.ShipCoName2,单号为 @info.ShipSN2</td><td style="vertical-align:middle;">@info.BackTime</td></tr>
+                        }
+                    </tbody>
+                </table>
+                <br />
+                }
+
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    @Html.Partial("_footer")
+</body>
+</html>

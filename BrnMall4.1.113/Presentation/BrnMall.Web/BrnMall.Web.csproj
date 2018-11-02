@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4E3E94FB-32E3-44A5-9C40-30755EA5E0AD}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BrnMall.Web</RootNamespace>
+    <AssemblyName>BrnMall.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\RefDLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="controllers\AccountController.cs" />
+    <Compile Include="controllers\CartController.cs" />
+    <Compile Include="controllers\CatalogController.cs" />
+    <Compile Include="controllers\CouponController.cs" />
+    <Compile Include="controllers\HelpController.cs" />
+    <Compile Include="controllers\HomeController.cs" />
+    <Compile Include="controllers\NewsController.cs" />
+    <Compile Include="controllers\OrderController.cs" />
+    <Compile Include="controllers\StoreController.cs" />
+    <Compile Include="controllers\ToolController.cs" />
+    <Compile Include="controllers\UCenterController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="models\AccountModel.cs" />
+    <Compile Include="models\CartModel.cs" />
+    <Compile Include="models\CatalogModel.cs" />
+    <Compile Include="models\HelpModel.cs" />
+    <Compile Include="models\NewsModel.cs" />
+    <Compile Include="models\OrderModel.cs" />
+    <Compile Include="models\StoreModel.cs" />
+    <Compile Include="models\UCenterModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\pangu\dictionaries\ChsDoubleName1.txt" />
+    <Content Include="App_Data\pangu\dictionaries\ChsDoubleName2.txt" />
+    <Content Include="App_Data\pangu\dictionaries\ChsSingleName.txt" />
+    <Content Include="App_Data\pangu\dictionaries\Stopword.txt" />
+    <Content Include="App_Data\pangu\dictionaries\Synonym.txt" />
+    <Content Include="App_Data\pangu\dictionaries\Wildcard.txt" />
+    <Content Include="App_Data\upload.config" />
+    <None Include="App_Data\pangu\pangu.config" />
+    <Content Include="cache\category\selectlist.htm" />
+    <Content Include="components\umeditor\dialogs\emotion\emotion.css" />
+    <Content Include="components\umeditor\dialogs\emotion\emotion.js" />
+    <Content Include="components\umeditor\dialogs\emotion\images\0.gif" />
+    <Content Include="components\umeditor\dialogs\emotion\images\bface.gif" />
+    <Content Include="components\umeditor\dialogs\emotion\images\cface.gif" />
+    <Content Include="components\umeditor\dialogs\emotion\images\fface.gif" />
+    <Content Include="components\umeditor\dialogs\emotion\images\jxface2.gif" />
+    <Content Include="components\umeditor\dialogs\emotion\images\neweditor-tab-bg.png" />
+    <Content Include="components\umeditor\dialogs\emotion\images\tface.gif" />
+    <Content Include="components\umeditor\dialogs\emotion\images\wface.gif" />
+    <Content Include="components\umeditor\dialogs\emotion\images\yface.gif" />
+    <Content Include="components\umeditor\dialogs\formula\formula.css" />
+    <Content Include="components\umeditor\dialogs\formula\formula.html" />
+    <Content Include="components\umeditor\dialogs\formula\formula.js" />
+    <Content Include="components\umeditor\dialogs\formula\images\formula.png" />
+    <Content Include="components\umeditor\dialogs\image\image.css" />
+    <Content Include="components\umeditor\dialogs\image\image.js" />
+    <Content Include="components\umeditor\dialogs\image\images\close.png" />
+    <Content Include="components\umeditor\dialogs\image\images\upload1.png" />
+    <Content Include="components\umeditor\dialogs\image\images\upload2.png" />
+    <Content Include="components\umeditor\dialogs\link\link.js" />
+    <Content Include="components\umeditor\dialogs\map\map.html" />
+    <Content Include="components\umeditor\dialogs\map\map.js" />
+    <Content Include="components\umeditor\dialogs\video\images\center_focus.jpg" />
+    <Content Include="components\umeditor\dialogs\video\images\left_focus.jpg" />
+    <Content Include="components\umeditor\dialogs\video\images\none_focus.jpg" />
+    <Content Include="components\umeditor\dialogs\video\images\right_focus.jpg" />
+    <Content Include="components\umeditor\dialogs\video\video.css" />
+    <Content Include="components\umeditor\dialogs\video\video.js" />
+    <Content Include="components\umeditor\lang\zh-cn\images\copy.png" />
+    <Content Include="components\umeditor\lang\zh-cn\images\imglabel.png" />
+    <Content Include="components\umeditor\lang\zh-cn\images\localimage.png" />
+    <Content Include="components\umeditor\lang\zh-cn\images\music.png" />
+    <Content Include="components\umeditor\lang\zh-cn\images\upload.png" />
+    <Content Include="components\umeditor\lang\zh-cn\zh-cn.js" />
+    <Content Include="components\umeditor\themes\default\css\umeditor.css" />
+    <Content Include="components\umeditor\themes\default\css\umeditor.min.css" />
+    <Content Include="components\umeditor\themes\default\images\caret.png" />
+    <Content Include="components\umeditor\themes\default\images\close.png" />
+    <Content Include="components\umeditor\themes\default\images\icons.gif" />
+    <Content Include="components\umeditor\themes\default\images\icons.png" />
+    <Content Include="components\umeditor\themes\default\images\ok.gif" />
+    <Content Include="components\umeditor\themes\default\images\pop-bg.png" />
+    <Content Include="components\umeditor\themes\default\images\spacer.gif" />
+    <Content Include="components\umeditor\themes\default\images\videologo.gif" />
+    <Content Include="components\umeditor\third-party\mathquill\font\stixgeneral-bundle\STIXFontLicense2010.txt" />
+    <Content Include="components\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.svg" />
+    <Content Include="components\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.svg" />
+    <Content Include="components\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.svg" />
+    <Content Include="components\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.svg" />
+    <Content Include="components\umeditor\third-party\mathquill\font\Symbola.svg" />
+    <Content Include="components\umeditor\third-party\mathquill\mathquill.css" />
+    <Content Include="components\umeditor\third-party\mathquill\mathquill.js" />
+    <Content Include="components\umeditor\third-party\mathquill\mathquill.min.js" />
+    <Content Include="components\umeditor\umeditor.config.js" />
+    <Content Include="components\umeditor\umeditor.js" />
+    <Content Include="components\jbox\jquery.jBox-2.3.min.js" />
+    <Content Include="components\jbox\Skins\Default\images\jbox-button1.png" />
+    <Content Include="components\jbox\Skins\Default\images\jbox-button2.png" />
+    <Content Include="components\jbox\Skins\Default\images\jbox-close1.gif" />
+    <Content Include="components\jbox\Skins\Default\images\jbox-close2.gif" />
+    <Content Include="components\jbox\Skins\Default\images\jbox-content-loading.gif" />
+    <Content Include="components\jbox\Skins\Default\images\jbox-icons-ie6.gif" />
+    <Content Include="components\jbox\Skins\Default\images\jbox-icons.png" />
+    <Content Include="components\jbox\Skins\Default\images\jbox-loading1.gif" />
+    <Content Include="components\jbox\Skins\Default\images\jbox-loading2.gif" />
+    <Content Include="components\jbox\Skins\Default\images\jbox-loading3.gif" />
+    <Content Include="components\jbox\Skins\Default\images\jbox-title-icon.gif" />
+    <Content Include="components\jbox\Skins\Default\jbox.css" />
+    <Content Include="components\my97datepicker\calendar.js" />
+    <Content Include="components\my97datepicker\config.js" />
+    <Content Include="components\my97datepicker\lang\zh-cn.js" />
+    <Content Include="components\my97datepicker\My97DatePicker.htm" />
+    <Content Include="components\my97datepicker\skin\datePicker.gif" />
+    <Content Include="components\my97datepicker\skin\default\datepicker.css" />
+    <Content Include="components\my97datepicker\skin\default\img.gif" />
+    <Content Include="components\my97datepicker\skin\WdatePicker.css" />
+    <Content Include="components\my97datepicker\WdatePicker.js" />
+    <Content Include="components\webuploader\Uploader.swf" />
+    <Content Include="components\webuploader\webuploader.css" />
+    <Content Include="components\webuploader\webuploader.flashonly.js" />
+    <Content Include="components\webuploader\webuploader.html5only.js" />
+    <Content Include="components\webuploader\webuploader.js" />
+    <Content Include="css\account.css" />
+    <Content Include="css\base.css" />
+    <Content Include="css\buy.css" />
+    <Content Include="css\content.css" />
+    <Content Include="css\help.css" />
+    <Content Include="css\home.css" />
+    <Content Include="css\list.css" />
+    <Content Include="css\ucenter.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="App_Data\credit.config" />
+    <Content Include="App_Data\email.config" />
+    <Content Include="App_Data\event.config" />
+    <Content Include="App_Data\installedplugin.config" />
+    <Content Include="App_Data\ipdata.config" />
+    <Content Include="App_Data\mall.config" />
+    <Content Include="App_Data\memcachedcache.config" />
+    <Content Include="App_Data\memcachedcart.config" />
+    <Content Include="App_Data\memcachedsession.config" />
+    <Content Include="App_Data\rabbitmqorder.config" />
+    <Content Include="App_Data\rdbs.config" />
+    <Content Include="App_Data\redisnosql.config" />
+    <Content Include="App_Data\sms.config" />
+    <Content Include="images\20130603A.png" />
+    <Content Include="images\loginAd.png" />
+    <Content Include="images\bgW.jpg" />
+    <Content Include="images\bottomBg.jpg" />
+    <Content Include="images\bottomLogo.jpg" />
+    <Content Include="images\buy.png" />
+    <Content Include="images\buy1.png" />
+    <Content Include="images\categorys.jpg" />
+    <Content Include="images\d.png" />
+    <Content Include="images\deng.png" />
+    <Content Include="images\du.gif" />
+    <Content Include="images\floorB.gif" />
+    <Content Include="images\gonggao.jpg" />
+    <Content Include="images\guanzhu.png" />
+    <Content Include="images\helpcenter_icon1.gif" />
+    <Content Include="images\helpcenter_icon2.gif" />
+    <Content Include="images\help_leftsz.gif" />
+    <Content Include="images\i.gif" />
+    <Content Include="images\itab3.gif" />
+    <Content Include="images\jia.png" />
+    <Content Include="images\jz.gif" />
+    <Content Include="images\ljjs.jpg" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\lock.jpg" />
+    <Content Include="images\logo.jpg" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\lr.jpg" />
+    <Content Include="images\lrS.jpg" />
+    <Content Include="images\m.jpg" />
+    <Content Include="images\newpp.png" />
+    <Content Include="images\noBuy.png" />
+    <Content Include="images\ok.gif" />
+    <Content Include="images\p.jpg" />
+    <Content Include="images\shopping.png" />
+    <Content Include="images\shoppingNone.gif" />
+    <Content Include="images\succ-error.png" />
+    <Content Include="images\succ-ico.png" />
+    <Content Include="images\succ-ok.png" />
+    <Content Include="images\tb.png" />
+    <Content Include="images\tip.png" />
+    <Content Include="images\tj.jpg" />
+    <Content Include="images\u.png" />
+    <Content Include="images\user-avatar.gif" />
+    <Content Include="images\userIMG-bg.png" />
+    <Content Include="images\userSJ.png" />
+    <Content Include="images\zoomloader.gif" />
+    <Content Include="robots.txt" />
+    <Content Include="scripts\account.js" />
+    <Content Include="scripts\common.js" />
+    <Content Include="scripts\jquery.js" />
+    <Content Include="scripts\jquery.soChange.js" />
+    <Content Include="scripts\jquery.jqzoom.js" />
+    <Content Include="scripts\jquery.jqzoom.css" />
+    <Content Include="scripts\order.js" />
+    <Content Include="scripts\product.js" />
+    <Content Include="scripts\region.js" />
+    <Content Include="scripts\ucenter.order.js" />
+    <Content Include="scripts\ucenter.safe.js" />
+    <Content Include="scripts\ucenter.user.js" />
+    <Content Include="themes\default\theme.png" />
+    <Content Include="themes\default\theme.xml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="views\account\findpwd.cshtml" />
+    <Content Include="views\account\login.cshtml" />
+    <Content Include="views\account\register.cshtml" />
+    <Content Include="views\account\resetpwd.cshtml" />
+    <Content Include="views\account\selectfindpwdtype.cshtml" />
+    <Content Include="views\cart\addsuccess.cshtml" />
+    <Content Include="views\cart\ajaxindex.cshtml" />
+    <Content Include="views\cart\fullcutproductlist.cshtml" />
+    <Content Include="views\cart\fullsendmainproductlist.cshtml" />
+    <Content Include="views\cart\index.cshtml" />
+    <Content Include="views\cart\snap.cshtml" />
+    <Content Include="views\catalog\ajaxproductconsultlist.cshtml" />
+    <Content Include="views\catalog\ajaxproductreviewlist.cshtml" />
+    <Content Include="views\catalog\category.cshtml" />
+    <Content Include="views\catalog\product.cshtml" />
+    <Content Include="views\catalog\productconsultlist.cshtml" />
+    <Content Include="views\catalog\productreviewlist.cshtml" />
+    <Content Include="views\catalog\search.cshtml" />
+    <Content Include="views\catalog\suit.cshtml" />
+    <Content Include="views\catalog\topic.cshtml" />
+    <Content Include="views\help\question.cshtml" />
+    <Content Include="views\home\index.cshtml" />
+    <Content Include="views\news\details.cshtml" />
+    <Content Include="views\news\list.cshtml" />
+    <Content Include="views\order\confirmorder.cshtml" />
+    <Content Include="views\order\payresult.cshtml" />
+    <Content Include="views\order\payshow.cshtml" />
+    <Content Include="views\order\submitresult.cshtml" />
+    <Content Include="views\shared\prompt.cshtml" />
+    <Content Include="views\shared\_footer.cshtml" />
+    <Content Include="views\shared\_header.cshtml" />
+    <Content Include="views\shared\_layout.cshtml" />
+    <Content Include="views\ucenter\couponlist.cshtml" />
+    <Content Include="views\ucenter\favoriteproductlist.cshtml" />
+    <Content Include="views\ucenter\favoritestorelist.cshtml" />
+    <Content Include="views\ucenter\orderinfo.cshtml" />
+    <Content Include="views\ucenter\orderlist.cshtml" />
+    <Content Include="views\ucenter\paycreditloglist.cshtml" />
+    <Content Include="views\ucenter\productconsultlist.cshtml" />
+    <Content Include="views\ucenter\productreviewlist.cshtml" />
+    <Content Include="views\ucenter\revieworder.cshtml" />
+    <Content Include="views\ucenter\safeinfo.cshtml" />
+    <Content Include="views\ucenter\safesuccess.cshtml" />
+    <Content Include="views\ucenter\safeupdate.cshtml" />
+    <Content Include="views\ucenter\safeverify.cshtml" />
+    <Content Include="views\ucenter\shipaddresslist.cshtml" />
+    <Content Include="views\ucenter\userinfo.cshtml" />
+    <Content Include="views\Web.config" />
+    <Content Include="views\_ViewStart.cshtml" />
+    <Content Include="views\ucenter\_menu.cshtml" />
+    <Content Include="themes\Web.config" />
+    <Content Include="themes\default\views\_banner.cshtml" />
+    <Content Include="views\ucenter\orderafterservice.cshtml" />
+    <Content Include="views\ucenter\applyorderafterservice.cshtml" />
+    <Content Include="views\ucenter\sendorderafterservice.cshtml" />
+    <Content Include="views\ucenter\orderproductafterservicelist.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\txtlogs\" />
+    <Folder Include="plugins\bin\" />
+    <Folder Include="upload\adv\" />
+    <Folder Include="upload\brand\" />
+    <Folder Include="upload\friendlink\" />
+    <Folder Include="upload\help\" />
+    <Folder Include="upload\news\" />
+    <Folder Include="upload\storerank\" />
+    <Folder Include="upload\store\" />
+    <Folder Include="upload\userrank\" />
+    <Folder Include="upload\user\" />
+    <Folder Include="watermarks\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\BrnMall.Core\BrnMall.Core.csproj">
+      <Project>{089949bc-b250-42f0-8853-fada0c2a61ab}</Project>
+      <Name>BrnMall.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\BrnMall.Services\BrnMall.Services.csproj">
+      <Project>{f0648a58-1818-4760-a26c-010a7e6b6e75}</Project>
+      <Name>BrnMall.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BrnMall.Web.Framework\BrnMall.Web.Framework.csproj">
+      <Project>{d28523f3-3c46-429f-8dd4-6bbf2a2d57c8}</Project>
+      <Name>BrnMall.Web.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="themes\default\views\class.cshtml" />
+    <Content Include="themes\default\views\details.cshtml" />
+    <Content Include="themes\default\views\index.cshtml" />
+    <Content Include="themes\default\views\search.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\pangu\dictionaries\Dict.dct" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="components\jbox\Skins\Default\Desktop.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="components\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.eot" />
+    <Content Include="components\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.ttf" />
+    <Content Include="components\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.woff" />
+    <Content Include="components\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.eot" />
+    <Content Include="components\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.ttf" />
+    <Content Include="components\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.woff" />
+    <Content Include="components\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.eot" />
+    <Content Include="components\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.ttf" />
+    <Content Include="components\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.woff" />
+    <Content Include="components\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.eot" />
+    <Content Include="components\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.ttf" />
+    <Content Include="components\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.woff" />
+    <Content Include="components\umeditor\third-party\mathquill\font\Symbola.eot" />
+    <Content Include="components\umeditor\third-party\mathquill\font\Symbola.otf" />
+    <Content Include="components\umeditor\third-party\mathquill\font\Symbola.ttf" />
+    <Content Include="components\umeditor\third-party\mathquill\font\Symbola.woff" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6174</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6174/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

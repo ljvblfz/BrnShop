@@ -1,0 +1,59 @@
+﻿@model BrnMall.Web.MallAdmin.Models.CheckOrderAfterServiceModel
+
+@section header{
+    <title>审核</title>
+    <link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css"/>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.validate.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.validate.unobtrusive.js"></script>
+}
+
+@section body{
+<h1 class="rightH1">
+售后服务 &gt;&gt;审核 
+<div class="right">
+<a href="@Url.Action("orderafterserviceinfo", new { asId = ViewData["asId"] })" class="menuBT"><img src="/admin_mall/images/goback.jpg"/>返回</a>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</h1>
+@using (Html.BeginForm())
+{
+<div class="addTable">
+<table width="100%">
+    <tr>
+        <td width="80px" align="right">审核结果：</td>
+        <td>
+            <p>
+                <label>@Html.RadioButtonFor(x => x.State, 0, new { @class = "checkbox" })拒绝</label>
+                <label>@Html.RadioButtonFor(x => x.State, 1, new { @class = "checkbox" })通过</label>
+                <br />
+            </p>
+        </td>
+    </tr>
+    <tr>
+    <td align="right">审核备注：</td>
+    <td>@Html.TextAreaFor(x => x.CheckResult, new { cols = "40", rows = "6" })@Html.ValidationMessageFor(x => x.CheckResult)</td>
+    </tr>
+    <tr>
+    <td align="right">&nbsp;</td>
+    <td>
+    <a href="" class="addBt" id="sumbitBut" ><img src="/admin_mall/images/submit.jpg" /></a>
+        <script type="text/javascript">
+            $(function () {
+                $("#sumbitBut").click(function () {
+                    $("form:first").submit();
+                    return false;
+                })
+            });
+        </script>
+    </td>
+    </tr>
+  <tr>
+    <td align="right">&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+</table>
+</div>
+}
+}

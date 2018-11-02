@@ -1,0 +1,25 @@
+Log Entry : 2015年09月06日 08:05:40
+方法:System.CodeDom.Compiler.CompilerResults Compile(),异常信息:c:\Users\zm\Desktop\工作\BrnMall\Presentation\BrnMall.Web\views\home\index.cshtml(57): error CS1061: “BrnMall.Core.AdvertInfo”不包含“Img”的定义，并且找不到可接受类型为“BrnMall.Core.AdvertInfo”的第一个参数的扩展方法“Img”(是否缺少 using 指令或程序集引用?)
+------------------------------------
+Log Entry : 2015年09月06日 08:06:47
+方法:System.CodeDom.Compiler.CompilerResults Compile(),异常信息:c:\Users\zm\Desktop\工作\BrnMall\Presentation\BrnMall.Web\views\home\index.cshtml(140): error CS0246: 未能找到类型或命名空间名称“BannerInfo”(是否缺少 using 指令或程序集引用?)
+------------------------------------
+Log Entry : 2015年09月06日 08:36:50
+方法:Int32 GetOrdinal(System.String),异常信息:displayorder
+------------------------------------
+Log Entry : 2015年09月06日 10:10:59
+方法:System.CodeDom.Compiler.CompilerResults Compile(),异常信息:c:\Users\zm\Desktop\工作\BrnMall\Presentation\BrnMall.Web\views\account\login.cshtml(37): error CS1061: “BrnMall.Core.AdvertInfo”不包含“Body”的定义，并且找不到可接受类型为“BrnMall.Core.AdvertInfo”的第一个参数的扩展方法“Body”(是否缺少 using 指令或程序集引用?)
+------------------------------------
+Log Entry : 2015年09月06日 10:33:41
+方法:System.CodeDom.Compiler.CompilerResults Compile(),异常信息:c:\Users\zm\Desktop\工作\BrnMall\Presentation\BrnMall.Web\views\catalog\category.cshtml(67): error CS1061: “BrnMall.Core.AdvertInfo”不包含“Body”的定义，并且找不到可接受类型为“BrnMall.Core.AdvertInfo”的第一个参数的扩展方法“Body”(是否缺少 using 指令或程序集引用?)
+------------------------------------
+Log Entry : 2015年09月06日 11:22:21
+方法:Void OnError(System.Data.SqlClient.SqlException, Boolean, System.Action`1[System.Action]),异常信息:列名 ''lumia'' 无效。
+------------------------------------
+Log Entry : 2015年09月06日 11:26:15
+方法:Void SearchMallProducts(Int32, Int32, System.String, Int32, Int32, Int32, System.Collections.Generic.List`1[System.Int32], Int32, Int32, Int32, BrnMall.Core.CategoryInfo ByRef, System.String[] ByRef, System.Collections.Generic.List`1[System.Collections.Generic.KeyValuePair`2[BrnMall.Core.AttributeInfo,System.Collections.Generic.List`1[BrnMall.Core.AttributeValueInfo]]] ByRef, System.Collections.Generic.List`1[BrnMall.Core.CategoryInfo] ByRef, BrnMall.Core.BrandInfo ByRef, System.Collections.Generic.List`1[BrnMall.Core.BrandInfo] ByRef, Int32 ByRef, System.Collections.Generic.List`1[BrnMall.Core.StoreProductInfo] ByRef),异常信息:未将对象引用设置到对象的实例。
+------------------------------------
+Log Entry : 2015年09月06日 15:32:32
+方法:System.String Substring(Int32, Int32),异常信息:StartIndex 不能小于 0。
+参数名: startIndex
+------------------------------------

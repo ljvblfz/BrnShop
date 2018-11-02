@@ -1,0 +1,149 @@
+﻿@model BrnMall.Web.Models.UserInfoModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>用户信息-@{@WorkContext.MallConfig.SiteTitle}</title>
+    @Html.Raw(WorkContext.MallConfig.SEOKeyword)
+    @Html.Raw(WorkContext.MallConfig.SEODescription)
+    <link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="@{@WorkContext.CSSCDN}/css/ucenter.css" rel="stylesheet" type="text/css" />
+    <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/region.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/common.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/ucenter.user.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        uid = @WorkContext.Uid;
+        isGuestSC = @WorkContext.MallConfig.IsGuestSC;
+        scSubmitType = @WorkContext.MallConfig.SCSubmitType;
+        provinceId = @ViewData["provinceId"]; //省id
+        cityId = @ViewData["cityId"]; //市id
+        countyId = @ViewData["countyId"]; //县或区id
+    </script>
+</head>
+
+<body>
+@Html.Partial("_header")
+
+<div class="bigBox" id="member">
+<div class="box">
+@Html.Partial("_menu")
+<div id="memberR">
+    <h2 id="memberRT">个人信息</h2>
+    <form name="userInfoForm" action="">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="memberTable">
+          <tr>
+            <th width="100" align="right">用户名：</th>
+            <td>
+                @if (Model.UserInfo.UserName.Length > 0)
+                {
+                    @Model.UserInfo.UserName
+                }
+                else
+                {
+                    <input type="text" name="userName" value="" class="text" maxlength="15" style="width:200px" />@*<span class="tip">这里是提示信息</span>*@
+                }
+                &nbsp;&nbsp;&nbsp;@Model.UserRankInfo.Title
+            </td>
+          </tr>
+
+          <tr>
+            <th width="100" align="right">昵称：</th>
+            <td><input type="text" name="nickName" value="@Model.UserInfo.NickName" class="text" maxlength="15" style="width:200px" />@*<span class="tip">这里是提示信息</span>*@</td>
+          </tr>
+  
+          <tr>
+            <th width="100" align="right">真实姓名：</th>
+            <td><input type="text" name="realName" value="@Model.UserInfo.RealName" class="text" maxlength="15" style="width:200px" />@*<span class="tip">这里是提示信息</span>*@</td>
+          </tr>
+  
+          <tr>
+            <th width="100" align="right">性别：</th>
+            <td>
+             <label class="radio"><input type="radio" name="gender" value="1" @{if(Model.UserInfo.Gender==1){<text>checked="checked"</text>}} />男</label>
+             <label class="radio"><input type="radio" name="gender" value="2" @{if(Model.UserInfo.Gender==2){<text>checked="checked"</text>}} />女</label>
+             <label class="radio"><input type="radio" name="gender" value="0" @{if(Model.UserInfo.Gender==0){<text>checked="checked"</text>}} />未知</label>
+             </td>
+          </tr>
+
+          <tr>
+            <th width="100" align="right">身份证号码：</th>
+            <td><input type="text" name="idCard" value="@Model.UserInfo.IdCard" class="text" maxlength="18" style="width:200px" />@*<span class="tip">这里是提示信息</span>*@</td>
+          </tr>
+
+          <tr>
+            <th width="100" align="right">出生日期：</th>
+            <td><input type="text" name="bday" value="@Model.UserInfo.Bday.ToString("yyyy-MM-dd")" class="text" maxlength="15" style="width:200px" />@*<span class="tip">这里是提示信息</span>*@</td>
+          </tr>
+  
+          <tr>
+            <th width="100" align="right">详细地址：</th>
+            <td> 
+                <select id="provinceId" name="provinceId">
+                <option selected="selected" value="-1">请选择</option>
+                </select>
+                <select id="cityId" name="cityId">
+                <option selected="selected" value="-1">请选择</option>
+                </select>
+                <select id="regionId" name="regionId">
+                <option selected="selected" value="-1">请选择</option>
+                </select>
+                @*<span class="tip">这里是提示信息</span></td>*@
+          </tr>
+
+          <tr>
+            <th width="100" align="right">详细地址：</th>
+            <td><input type="text" name="address" value="@Model.UserInfo.Address" class="text" maxlength="15" />@*<span class="tip">这里是提示信息</span>*@</td>
+          </tr>
+
+          <tr>
+            <th width="100" align="right">@*<em>*</em>*@个人简介：</th>
+            <td><textarea rows="5" cols="40" name="bio" class="text" style=" height:100px;">@Model.UserInfo.Bio</textarea>@*<span class="tip">这里是提示信息</span>*@</td>
+          </tr>
+
+          <tr>
+            <th width="100" align="right">&nbsp;</th>
+            <td><a href="#" class="greenBT" style="font-size:14px; padding:3px 20px;" onclick="editUser()">提交</a></td>
+          </tr>
+        </table>
+    </form>
+    <script type="text/javascript">
+        //绑定省列表的改变事件
+        $("#provinceId").change(function(){
+            var selectedProvinceId = $(this).find("option:selected").val();
+            if (selectedProvinceId > 0) {
+                $("#regionId").html("<option value='-1'>请选择</option>");
+                bindCityList(selectedProvinceId, document.getElementById("cityId"));
+            }
+        })
+
+        //绑定市列表的改变事件
+        $("#cityId").change(function(){
+            var selectedCityId = $(this).find("option:selected").val();
+            if (selectedCityId > 0) {
+                bindCityList(selectedCityId, document.getElementById("regionId"));
+            }
+        })
+
+        //绑定省列表
+        bindProvinceList(document.getElementById("provinceId"), provinceId);
+
+        if (cityId > 0) {
+            bindCityList(provinceId, document.getElementById("cityId"), cityId);
+            bindCountyList(cityId, document.getElementById("regionId"), countyId);
+        }
+</script>
+</div>
+
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+
+
+@Html.Partial("_footer")
+</body>
+</html>

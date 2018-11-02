@@ -1,0 +1,49 @@
+﻿@model BrnMall.Web.Models.NewsListModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>新闻列表-@{@WorkContext.MallConfig.SiteTitle}</title>
+    @Html.Raw(WorkContext.MallConfig.SEOKeyword)
+    @Html.Raw(WorkContext.MallConfig.SEODescription)
+    <link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="@{@WorkContext.CSSCDN}/css/help.css" rel="stylesheet" type="text/css" />
+    <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/common.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        uid = @WorkContext.Uid;
+        isGuestSC = @WorkContext.MallConfig.IsGuestSC;
+        scSubmitType = @WorkContext.MallConfig.SCSubmitType;
+    </script>
+</head>
+
+<body>
+@Html.Partial("_header")
+<script type="text/javascript">
+    $("#categorys").unbind();
+    $("#categorysCon").removeClass("hide");
+</script>
+
+<div class="box">
+<div id="news" class="box">
+<h1 class="newsListT">新闻中心</h1>
+<ul class="newsList">
+@{
+    foreach(DataRow row in Model.NewsList.Rows)
+    {
+        <li><a href="@Url.Action("details", new RouteValueDictionary { { "newsId", row["newsid"] } })">@row["title"]</a><span>@row["addtime"]</span></li>
+    }
+    }
+</ul>
+@Html.WebPager(Model.PageModel)
+</div>
+
+</div>
+
+
+@Html.Partial("_footer")
+</body>
+</html>

@@ -1,0 +1,151 @@
+﻿@model BrnMall.Web.StoreAdmin.Models.ProductListModel
+
+@section header{
+    <title>回收站</title>
+    <link type="text/css" rel="stylesheet" href="/admin_store/css/site.css"/>
+    <script type="text/javascript" src="/admin_store/scripts/jquery.js"></script>
+    <script type="text/javascript" src="/admin_store/scripts/showlist.js"></script>
+    <link rel="stylesheet" type="text/css"  href="/components/jbox/Skins/Default/jbox.css"/>
+    <script type="text/javascript" src="/components/jbox/jquery.jBox-2.3.min.js"></script>
+    <script type="text/javascript" src="/admin_store/scripts/selectlist.js"></script>
+    <script type="text/javascript">
+        delMessage = "您确定要删除吗？删除以后将不能再恢复！";
+        batchDelMessage = "您确定要删除吗？删除以后将不能再恢复！";
+
+        $(function () {
+            $(".editOperate").click(function () {
+                if (!confirm("您确定要还原吗？")) {
+                    return false;
+                }
+            });
+
+            $(".batchRestore").click(function () {
+                if ($("input[type='checkbox'][selectItem='true']:checked").length > 0) {
+                    if (confirm("您确定要还原吗？")) {
+                        doPostBack($(this).attr("restoreUrl"));
+                    }
+                }
+                else {
+                    alert("没有选中任何一项!");
+                }
+            })
+        });
+    </script>
+}
+
+@section body{
+<h1 class="rightH1">
+商品管理 &gt;&gt; 回收站
+<div class="right">
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</h1>
+@using (Html.BeginForm())
+{
+    
+<div class="dataListSearch">
+<table height="32">
+                <tbody>
+                    <tr>
+                        <td width="35"><img id="searchImg" src="/admin_store/images/search1.gif" /></td>
+                        <td>商品分类：</td>
+                        <td width="100">
+                            <div class="selectBt">
+                                <input type="button" value="@Model.CategoryName" onclick="openCategorySelectLayer(this)" style="height:22px; line-height:22px;background:url(/admin_store/images/selectbgico.gif) no-repeat 6px center; padding-left:22px; padding-right:10px;"/>
+                                <input type="hidden" class="CateId" id="CateId" name="CateId" value="@Model.CateId" />
+                                <input type="hidden" class="CategoryName" id="CategoryName" name="CategoryName" value="@Model.CategoryName" />
+                            </div>
+                        </td>
+                        <td>商品品牌：</td>
+                        <td width="100">
+                            <div class="selectBt">
+                                <input type="button" value="@Model.BrandName" onclick="openBrandSelectLayer(this)" style="height:22px; line-height:22px;background:url(/admin_store/images/selectbgico.gif) no-repeat 6px center; padding-left:22px; padding-right:10px;"/>
+                                <input type="hidden" class="BrandId" id="BrandId" name="BrandId" value="@Model.BrandId" />
+                                <input type="hidden" class="BrandName" id="BrandName" name="BrandName" value="@Model.BrandName" />
+                            </div>
+                        </td>
+                        <td>店铺分类：</td>
+                        <td width="80">@Html.DropDownListFor(x => x.StoreCid, Model.StoreClassList)</td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商品名称：</td>
+                        <td width="180">@Html.TextBox("ProductName", Model.ProductName, new { height = "28", size = "30" })</td>
+                        <td><input id="SearchProduct" name="SearchProduct" type="image" class="searchBut submit" src="/admin_store/images/s.jpg" /></td>
+                    </tr>
+                </tbody>
+     </table>
+</div>
+
+<div class="dataList">
+<table width="100%">
+                <thead>
+                    <tr>
+                        <th width="40" align="center"><input type="checkbox" id="allSelect" /></th>
+                        <th width="50" align="left">编号</th>
+                        <th align="left">名称</th>
+                        <th width="46" align="center">精品</th>
+                        <th width="46" align="center">热销</th>
+                        <th width="46" align="center">新品</th>
+                        <th width="56" align="center">排序</th>
+                        <th width="76" align="center">价格</th>
+                        <th width="60" align="center">库存</th>
+                        <th width="90" align="left">管理操作</th>
+                    </tr>
+                </thead>
+  <tbody>
+  @foreach (DataRow row in Model.ProductList.Rows)
+  {
+  <tr>
+    <td align="center"><input type="checkbox" value="@row["pid"]" selectItem="true" name="pidList" /></td>
+    <td>@row["pid"]</td>
+    <td>@row["pname"]</td>
+    <td align="center">@{
+        if(row["isbest"].ToString()=="0")
+        {
+            @:否
+            }
+            else
+            {
+            @:是
+            }
+            }</td>
+    <td align="center">@{
+      if (row["ishot"].ToString() == "0")
+        {
+            @:否
+            }
+            else
+            {
+            @:是
+            }
+            }</td>
+    <td align="center">@{
+      if (row["isnew"].ToString() == "0")
+        {
+            @:否
+            }
+            else
+            {
+            @:是
+            }
+            }</td>
+    <td align="center">@row["displayorder"]</td>
+    <td align="center">@row["shopprice"]</td>
+    <td align="center">@row["number"]</td>
+    <td>
+        @Html.ActionLink("[还原]", "restoreproduct", new { pidList = row["pid"] }, new { @class = "editOperate" })| 
+        @Html.ActionLink("[删除]", "delproduct", new { pidList = row["pid"] }, new { @class = "deleteOperate" })
+    </td>
+    </tr>
+  }
+</tbody>
+</table>
+</div>
+<div class="dataListEdit">
+<a href="javascript:void(0)" restoreUrl="@Url.Action("restoreproduct")" class="batch batchRestore">批量还原</a>
+<a href="javascript:void(0)" delUrl="@Url.Action("delproduct")" class="batch batchDel">批量删除</a>
+<div class="page">
+    @Html.StoreAdminPager(Model.PageModel)
+</div>
+</div>
+}
+}

@@ -1,0 +1,172 @@
+﻿@model BrnMall.Web.StoreAdmin.Models.OrderAfterServiceModel
+
+@section header{
+    <title>售后服务</title>
+    <link type="text/css" rel="stylesheet" href="/admin_store/css/site.css"/>
+    <script type="text/javascript" src="/admin_store/scripts/jquery.js"></script>
+    <style type="text/css">
+        .addTable table{ border-right:1px solid #d1d1d1;border-bottom:1px solid #d1d1d1; margin-top:20px; margin-left:16px; } 
+        .addTable table th{ background:#dbeffa; font-weight:normal;height:26px; padding-left:4px;} 
+        .addTable table th a{ padding-left:8px;} 
+        .addTable table td{ border-left:1px solid #d1d1d1;border-top:1px solid #d1d1d1;height:26px; padding-left:10px;}
+        .addTable table td.pImg{ padding:10px; }
+    </style>
+}
+
+@section body{
+<h1 class="rightH1">
+订单管理 &gt;&gt; 售后服务
+<div class="right">
+<a href="@Html.Raw(ViewData["referer"].ToString())" class="menuBT"><img src="/admin_store/images/goback.jpg"/>返回列表</a>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</h1>
+
+<div class="addTable">
+<table width="97%">
+  <tr><th colspan="4" align="left">基本信息</th></tr>
+  <tr>
+    <td width="150px">订单序号：</td>
+    <td width="320px">@Model.OrderAfterServiceInfo.Oid</td>
+    <td width="150px">用户编号：</td>
+    <td>@Model.OrderAfterServiceInfo.Uid</td>
+  </tr>
+  <tr>
+    <td width="150px">状态：</td>
+    <td>
+        @switch ((OrderAfterServiceState)Model.OrderAfterServiceInfo.State)
+        {
+            case OrderAfterServiceState.Checking:
+            @:审核中
+            break;
+            case OrderAfterServiceState.CheckAgree:
+            @:审核通过
+            break;
+            case OrderAfterServiceState.CheckRefuse:
+            @:审核拒绝
+            break;
+            case OrderAfterServiceState.Sended:
+            @:客户已邮寄
+            break;
+            case OrderAfterServiceState.Received:
+            @:商城已收货
+            break;
+            case OrderAfterServiceState.Backed:
+            @:商城已发货
+            break;
+            case OrderAfterServiceState.Completed:
+            @:完成
+            break;
+            default:
+            @:未知状态
+            break;
+        }
+        </td>
+    <td>类型：</td>
+    <td>
+        @switch(Model.OrderAfterServiceInfo.Type)
+        {
+            case 0:
+            @:退货
+            break;
+            case 1:
+            @:换货
+            break;
+            case 2:
+            @:维修
+            break;
+            default:
+            @:未知状态
+            break;
+        }
+    </td>
+  </tr>
+</table>
+
+@if(Model.OrderAfterServiceInfo.ShipCoId1 > 0)
+{
+<table width="97%">
+  <tr><th colspan="4" align="left">客户邮寄</th></tr>
+    <tr>
+    <td width="150px">物流公司：</td>
+    <td width="320px">@Model.OrderAfterServiceInfo.ShipCoName1</td>
+    <td width="150px">物流编号：</td>
+    <td>@Model.OrderAfterServiceInfo.ShipSN1</td>
+  </tr>
+  <tr>
+    <td width="150px">收货人：</td>
+    <td width="320px">@Model.OrderAfterServiceInfo.Consignee</td>
+    <td width="150px">手机号：</td>
+    <td>@Model.OrderAfterServiceInfo.Mobile</td>
+  </tr>
+  <tr>
+    <td width="150px">收货人：</td>
+    <td width="320px">@Model.OrderAfterServiceInfo.Consignee</td>
+    <td width="150px">手机号：</td>
+    <td>@Model.OrderAfterServiceInfo.Mobile</td>
+  </tr>
+  <tr>
+    <td>配送地址：</td>
+    <td colspan="3">@Model.RegionInfo.ProvinceName @Model.RegionInfo.CityName @Model.RegionInfo.Name @Model.OrderAfterServiceInfo.Address</td>
+  </tr>
+</table>
+}
+
+@if(Model.OrderAfterServiceInfo.ShipCoId2 > 0)
+{
+<table width="97%">
+  <tr><th colspan="4" align="left">商城邮寄</th></tr>
+    <tr>
+    <td width="150px">物流公司：</td>
+    <td width="320px">@Model.OrderAfterServiceInfo.ShipCoName2</td>
+    <td width="150px">物流编号：</td>
+    <td>@Model.OrderAfterServiceInfo.ShipSN2</td>
+  </tr>
+</table>
+}
+
+<table width="97%">
+  <tr><th colspan="6" align="left">商品信息</th></tr>
+  <tr>
+    <td align="center" width="60">商品图片</td>
+    <td>商品名称</td>
+    <td width="50">数量</td>
+    <td width="80">金额</td>
+  </tr>
+    <tr>
+        <td align="center" class="pImg"><img width="60px" height="60px" src="@WorkContext.ImageCDN/upload/store/@{@Model.OrderAfterServiceInfo.StoreId}/product/show/source/@Model.OrderAfterServiceInfo.PShowImg" /></td>
+        <td>@Model.OrderAfterServiceInfo.PName</td>
+        <td>@Model.OrderAfterServiceInfo.Count</td>
+        <td>@Model.OrderAfterServiceInfo.Money</td>
+    </tr>
+</table>
+
+<table width="97%">
+  <tr><th align="left">申请原因</th></tr>
+  <tr><td style="padding:0px 10px;">@Model.OrderAfterServiceInfo.ApplyReason</td></tr>
+</table>
+
+<table width="97%">
+  <tr><th colspan="4" align="left">管理操作</th></tr>
+  <tr>
+    <td width="100px">
+    @if (Model.OrderAfterServiceInfo.State == (int)OrderAfterServiceState.Checking)
+    {
+    <a href="@Url.Action("checkorderafterservice", new { asId = Model.OrderAfterServiceInfo.ASId })">审核</a>
+    }
+    else if (Model.OrderAfterServiceInfo.State == (int)OrderAfterServiceState.Sended)
+    {
+    <a href="@Url.Action("receiveorderafterservice", new { asId = Model.OrderAfterServiceInfo.ASId })">收货</a>
+    }
+    else if (Model.OrderAfterServiceInfo.State == (int)OrderAfterServiceState.Received)
+    {
+    <a href="@Url.Action("backorderafterservice", new { asId = Model.OrderAfterServiceInfo.ASId })">邮寄</a>
+    }
+    </td>
+  </tr>
+</table>
+
+<br />
+</div>    
+}

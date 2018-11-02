@@ -1,0 +1,72 @@
+﻿@model BrnMall.Web.Models.PayCreditLogListModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我的@{@WorkContext.PayCreditName}-@{@WorkContext.MallConfig.SiteTitle}</title>
+    @Html.Raw(WorkContext.MallConfig.SEOKeyword)
+    @Html.Raw(WorkContext.MallConfig.SEODescription)
+    <link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="@{@WorkContext.CSSCDN}/css/ucenter.css" rel="stylesheet" type="text/css" />
+    <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/common.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/ucenter.user.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        uid = @WorkContext.Uid;
+        isGuestSC = @WorkContext.MallConfig.IsGuestSC;
+        scSubmitType = @WorkContext.MallConfig.SCSubmitType;
+    </script>
+</head>
+
+<body>
+@Html.Partial("_header")
+
+<div class="bigBox" id="member">
+<div class="box">
+@Html.Partial("_menu")
+<div id="memberR" style=" padding-bottom:0px;">
+<h2 id="memberRT">
+    <strong>可用@{@WorkContext.PayCreditName}<font color="#e4393c">@WorkContext.PayCreditCount</font>个</strong>&nbsp; 
+    @*<select style="float:none;">
+      <option>收支明细</option>
+      <option>收入</option>
+      <option>支出</option>
+    </select>
+    <div class="searchList"><a href="#">什么是积分?</a> &nbsp; <a href="#">如何获取积分?</a></div>*@
+    <div class="clear"></div>
+</h2>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="tb-void">
+  <thead>
+    <tr>
+      <th>日期</th>
+      <th>收入/支出</th>
+      <th>详细说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (CreditLogInfo info in Model.PayCreditLogList)
+    {
+    <tr>
+      <td>@info.ActionTime</td>
+      <td>@info.PayCredits</td>
+      <td>@info.ActionDes</td>
+    </tr>
+    }
+  </tbody>
+</table>
+@Html.WebPager(Model.PageModel).ShowSummary(false)
+</div>
+
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+
+
+@Html.Partial("_footer")
+</body>
+</html>

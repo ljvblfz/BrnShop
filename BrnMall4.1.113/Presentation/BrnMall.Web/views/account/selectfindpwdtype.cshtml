@@ -1,0 +1,71 @@
+﻿@model BrnMall.Web.Models.SelectFindPwdTypeModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>选择找回方式-@{@WorkContext.MallConfig.SiteTitle}</title>
+    @Html.Raw(WorkContext.MallConfig.SEOKeyword)
+    @Html.Raw(WorkContext.MallConfig.SEODescription)
+    <link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="@{@WorkContext.CSSCDN}/css/account.css" rel="stylesheet" type="text/css" />
+    <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/account.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<div id="loginTop" class="box">
+    <a href="/" class="left"><img src="@{@WorkContext.ImageCDN}/images/logo.png" width="186" height="42" /></a>
+    <h2>选择找回方式</h2>
+    <div class="clear"></div>
+</div>
+
+<div class="findPassword box">
+<div class="step">
+<ul>
+    <li><s>1</s>验证身份</li>
+    <li class="hot"><s>2</s>选择找回方式</li>
+    <li><s>4</s>设置新密码</li>
+    <li><s>4</s>完成</li>
+    <div class="clear"></div>
+</ul>
+</div>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th width="190"><em>*</em>已验证手机：</th>
+    <td width="275"><font size="+1" style="font-weight:bold;">@Html.Raw(CommonHelper.HideMobile(Model.PartUserInfo.Mobile))</font> &nbsp;&nbsp;&nbsp; <a href="javascript:void(0)" onclick="sendFindPwdMobile(@Model.PartUserInfo.Uid)">发送验证短信</a></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <th><em>*</em>请填写手机校验码：</th>
+    <td colspan="2">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+           <tr>
+              <td><input type="text" id="moibleCode" value="" class="YZM text" />&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" class="grayBT" style="padding:12px 20px;" onclick="verifyFindPwdMobile(@Model.PartUserInfo.Uid, document.getElementById('moibleCode').value)">验证</a></td>
+           </tr>
+           @*
+           <tr>
+             <td height="30">校验码已发出，请注意查收短信，如果没有收到，你可以在<strong>114</strong>秒要求系统重新发送</td>
+           </tr>
+           *@
+        </table>
+    </td>
+    </tr>
+
+   <tr>
+    <th width="190"><em>*</em>已验证邮箱：</th>
+    <td width="275"><font size="+1" style="font-weight:bold;">@Html.Raw(CommonHelper.HideEmail(Model.PartUserInfo.Email))</font> &nbsp;&nbsp;&nbsp; <a href="javascript:void(0)" onclick="sendFindPwdEmail(@Model.PartUserInfo.Uid)">发送验证邮件</a></td>
+    <td>&nbsp;</td>
+  </tr>
+
+</table>
+</div>
+
+
+@Html.Partial("_footer")
+</body>
+</html>

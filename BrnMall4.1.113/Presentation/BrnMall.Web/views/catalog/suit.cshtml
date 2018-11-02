@@ -1,0 +1,68 @@
+﻿@model BrnMall.Web.Models.SuitModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@Model.SuitPromotionInfo.Name-@{@WorkContext.MallConfig.SiteTitle}</title>
+    @Html.Raw(WorkContext.MallConfig.SEOKeyword)
+    @Html.Raw(WorkContext.MallConfig.SEODescription)
+    <link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="@{@WorkContext.CSSCDN}/css/content.css" rel="stylesheet" type="text/css" />
+    <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/common.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/product.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        uid = @WorkContext.Uid;
+        isGuestSC = @WorkContext.MallConfig.IsGuestSC;
+        scSubmitType = @WorkContext.MallConfig.SCSubmitType;
+    </script>
+</head>
+
+<body>
+@Html.Partial("_header")
+
+
+<br />
+<div id="package" class="box">
+
+<div class="packageT">
+    <div class="price">￥@Model.SuitDiscount</div>
+    <div class="left"><b>优惠套装：</b>商品价：<del>￥@Model.ProductAmount</del> <span class="bq"> 套装价:</span><em> ￥@Model.SuitAmount</em></div>
+    <div class="right">1、套装优惠和满减优惠、满赠优惠不可同时享用；<br />2、一次购买，同一套装只能选择一组规格；</div>
+</div>
+
+<h2 class="packageT2">请选择商品规格：</h2>
+
+@foreach (ExtSuitProductInfo info in Model.SuitProductList)
+{
+    <div class="packageI">
+        <img src="@{@WorkContext.ImageCDN}/upload/store/@info.StoreId/product/show/thumb190_190/@info.ShowImg" width="128" height="128" />
+        <div class="left packageIC"> 
+            <dl>
+                <dt><strong>[套装商品]</strong>@info.Name</dt>
+                <dd><span>商 城 价：</span><p><em class="price">￥@info.ShopPrice</em></p><div class="clear"></div></dd>
+                <dd><span>数    量：</span><p><em>@info.Number@*<s class="bq">加价购</S> 购买1件及以上：￥599.00*@</em>
+                @*<em><s class="bq">多买优惠</S> 购买1件及以上：￥599.00</em></p><div class="clear"></div></dd>*@
+            </dl>
+        </div>
+        <div class="clear"></div>
+   </div>
+}
+
+<div></div>
+
+<div class="packageT" style="border-top:2px solid #DDD;">
+<div class="left"><b>优惠套装：</b>商品价：<del>￥@Model.ProductAmount</del> <span class="bq"> 套装价:</span><em> ￥@Model.SuitAmount</em></div>
+
+<div class="right" style="padding-top:15px;"><a href="javascript:addSuitToCart(@Model.SuitPromotionInfo.PmId,1)" class="redBT" style=" padding:5px 20px; font-size:20px; line-height:40px;">立即购买</a></div>
+
+</div>
+</div>
+
+
+@Html.Partial("_footer")
+</body>
+</html>

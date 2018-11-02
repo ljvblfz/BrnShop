@@ -1,0 +1,142 @@
+﻿@model BrnMall.Web.MallAdmin.Models.OrderAfterServiceListModel
+
+@section header{
+<title>售后服务</title>
+<link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css"/>
+<script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+<script type="text/javascript" src="/components/my97datepicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css"  href="/components/jbox/Skins/Default/jbox.css"/>
+<script type="text/javascript" src="/components/jbox/jquery.jBox-2.3.min.js"></script>
+<script type="text/javascript" src="/admin_mall/scripts/selectlist.js"></script>
+<script type="text/javascript" src="/admin_mall/scripts/showlist.js"></script>
+}
+
+@section body{
+<h1 class="rightH1">
+订单管理 &gt;&gt; 售后服务
+<div class="right">
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</h1>
+@using (Html.BeginForm("afterservicelist", "order"))
+{
+<div class="dataListSearch">
+<table height="32"><tbody>
+        <tr>
+        <td width="35"><img id="searchImg" src="/admin_mall/images/search1.gif"/></td>
+        <td>商品店铺：</td>
+        <td>
+        <div class="selectBt">
+            <input type="button" value="@Model.StoreName" onclick="openStoreSelectLayer(this)"  style="height:22px; line-height:22px;background:url(/admin_mall/images/selectbgico.gif) no-repeat 6px center; padding-left:22px; padding-right:10px;"/>
+            <input type="hidden" class="StoreId" id="StoreId" name="StoreId" value="@Model.StoreId" />
+            <input type="hidden" class="StoreName" id="StoreName" name="StoreName" value="@Model.StoreName" />
+        </div>
+        </td>
+        <td>&nbsp;&nbsp;&nbsp;类型：</td>
+        <td>@Html.DropDownListFor(x => x.Type, Model.TypeList)</td>
+        <td>&nbsp;&nbsp;&nbsp;状态：</td>
+        <td>@Html.DropDownListFor(x => x.State, Model.StateList)</td>
+        <td>&nbsp;&nbsp;&nbsp;订单编号：</td>
+        <td>@Html.TextBox("oid", Model.Oid, new { height = "18" })</td>
+        <td>&nbsp;&nbsp;&nbsp;账号名称：</td>
+        <td>@Html.TextBox("AccountName", Model.AccountName, new { height = "18" })</td>
+      </tr>
+</tbody></table>
+<table height="32"><tbody>
+        <tr>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开始时间：</td>
+        <td>@Html.TextBox("applyStartTime", Model.ApplyStartTime, new { height = "18", onfocus = "WdatePicker({el:'applyStartTime'})" })</td>
+        <td>&nbsp;&nbsp;&nbsp;结束时间：</td>
+        <td>@Html.TextBox("applyEndTime", Model.ApplyEndTime, new { height = "18", onfocus = "WdatePicker({el:'applyEndTime'})" })</td>
+        <td><input id="SearchOrder" name="SearchOrder" type="image" class="searchBut submit" src="/admin_mall/images/s.jpg" /></td>
+      </tr>
+</tbody></table>
+</div>
+
+<div class="dataList">
+<table width="100%">
+<thead>
+  <tr>
+    <th width="10" align="center"></th>
+    <th width="39" align="left">编号</th>  
+    <th align="left">商品</th>
+    <th width="80" align="left">金额</th>  
+    <th width="80" align="left">数量</th>  
+    <th width="80" align="left">类型</th>  
+    <th width="120" align="left">状态</th>  
+    <th width="140" align="left">申请时间</th>
+    <th width="56" align="left">管理操作</th>
+    </tr>
+</thead>
+  <tbody>
+  @foreach (DataRow row in Model.OrderAfterServiceList.Rows)
+  {
+  <tr>
+    <td align="center"></td>
+    <td>@row["asid"]</td>
+    <td>@row["pname"]</td>
+    <td>@row["money"]</td>
+    <td>@row["count"]</td>
+    <td>
+        @switch ((OrderAfterServiceState)(TypeHelper.ObjectToInt(row["state"])))
+        {
+            case OrderAfterServiceState.Checking:
+            @:审核中
+            break;
+            case OrderAfterServiceState.CheckAgree:
+            @:审核通过
+            break;
+            case OrderAfterServiceState.CheckRefuse:
+            @:审核拒绝
+            break;
+            case OrderAfterServiceState.Sended:
+            @:客户已邮寄
+            break;
+            case OrderAfterServiceState.Received:
+            @:商城已收货
+            break;
+            case OrderAfterServiceState.Backed:
+            @:商城已发货
+            break;
+            case OrderAfterServiceState.Completed:
+            @:完成
+            break;
+            default:
+            @:未知状态
+            break;
+        }
+    </td>
+    <td>
+        @switch (TypeHelper.ObjectToInt(row["type"]))
+        {
+            case 0:
+            @:退货
+            break;
+            case 1:
+            @:换货
+            break;
+            case 2:
+            @:维修
+            break;
+            default:
+            @:未知状态
+            break;
+        }
+    </td>
+    <td>@row["applytime"]</td>
+    <td>
+        @Html.ActionLink("[查看]", "orderafterserviceinfo", new { asId = row["asid"] }, new { @class = "editOperate" })
+    </td>
+    </tr>
+  }
+</tbody>
+</table>
+</div>
+<div class="dataListEdit">
+<div class="page">
+    @Html.MallAdminPager(Model.PageModel)
+</div>
+</div>
+}
+}

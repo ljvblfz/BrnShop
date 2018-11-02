@@ -1,0 +1,30 @@
+Log Entry : 2015年09月08日 08:07:51
+方法:System.Web.Mvc.IView FindPartialView(System.Web.Mvc.ViewContext, System.String, System.Web.Mvc.ViewEngineCollection),异常信息:未找到分部视图“_sfooter”或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/views/cart/_sfooter.cshtml
+~/views/shared/_sfooter.cshtml
+------------------------------------
+Log Entry : 2015年09月08日 08:08:37
+方法:System.Web.Mvc.IView FindPartialView(System.Web.Mvc.ViewContext, System.String, System.Web.Mvc.ViewEngineCollection),异常信息:未找到分部视图“_sfooter”或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/views/cart/_sfooter.cshtml
+~/views/shared/_sfooter.cshtml
+------------------------------------
+Log Entry : 2015年09月08日 08:09:18
+方法:System.Web.Mvc.IView FindPartialView(System.Web.Mvc.ViewContext, System.String, System.Web.Mvc.ViewEngineCollection),异常信息:未找到分部视图“_sfooter”或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/views/order/_sfooter.cshtml
+~/views/shared/_sfooter.cshtml
+------------------------------------
+Log Entry : 2015年09月08日 08:09:34
+方法:System.Web.Mvc.IView FindPartialView(System.Web.Mvc.ViewContext, System.String, System.Web.Mvc.ViewEngineCollection),异常信息:未找到分部视图“_sfooter”或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/views/order/_sfooter.cshtml
+~/views/shared/_sfooter.cshtml
+------------------------------------
+Log Entry : 2015年09月08日 08:09:43
+方法:System.Web.Mvc.IView FindPartialView(System.Web.Mvc.ViewContext, System.String, System.Web.Mvc.ViewEngineCollection),异常信息:未找到分部视图“_sfooter”或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/views/order/_sfooter.cshtml
+~/views/shared/_sfooter.cshtml
+------------------------------------
+Log Entry : 2015年09月08日 08:50:10
+方法:System.Web.Mvc.IView FindPartialView(System.Web.Mvc.ViewContext, System.String, System.Web.Mvc.ViewEngineCollection),异常信息:未找到分部视图“_sfooter”或没有视图引擎支持搜索的位置。搜索了以下位置: 
+~/views/cart/_sfooter.cshtml
+~/views/shared/_sfooter.cshtml
+------------------------------------

@@ -1,0 +1,94 @@
+﻿@model BrnMall.Web.Models.QuestionModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@Model.HelpInfo.Title-@{@WorkContext.MallConfig.SiteTitle}</title>
+    @Html.Raw(WorkContext.MallConfig.SEOKeyword)
+    @Html.Raw(WorkContext.MallConfig.SEODescription)
+    <link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="@{@WorkContext.CSSCDN}/css/help.css" rel="stylesheet" type="text/css" />
+    <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/common.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        uid = @WorkContext.Uid;
+        isGuestSC = @WorkContext.MallConfig.IsGuestSC;
+        scSubmitType = @WorkContext.MallConfig.SCSubmitType;
+    </script>
+</head>
+
+<body>
+@Html.Partial("_header")
+
+<div class="breadcrumb box">
+<strong><a href="#">消费者帮助中心</a></strong>
+<span>&nbsp;&gt;&nbsp;<a href="@Url.Action("question", new RouteValueDictionary { { "id", Model.HelpInfo.Id } })">@Model.HelpInfo.Title</a></span></div>
+<div class="box">
+<div id="helpL">
+
+    @{
+        int i = 1;
+        foreach (HelpInfo info in Model.HelpList)
+        {
+            if (info.Pid != 0)
+            {
+                if(info.Id == Model.HelpInfo.Id)
+                {
+                    @:<dd class="hot">
+                }
+                else
+                {
+                    @:<dd>
+                }
+                if (info.Url.Length == 0)
+                {
+                    <a href="@Url.Action("question", new RouteValueDictionary { { "id", info.Id } })">@info.Title</a>
+                }
+                else
+                {
+                    <a href="@info.Url">@info.Title</a>
+                }
+                @:</dd>
+            }
+            else
+            {
+                if (i != 1)
+                {
+                    @:</dl>
+                }
+                @:<dl class="hot"><dt>@info.Title<b></b></dt>
+                i++;
+            }
+        }
+        if (Model.HelpList.Count > 0)
+        {
+            @:</dl>
+        }
+    }
+
+</div>
+<script type="text/javascript">
+    $(function(){
+        $("#helpL dl dt").click(function(){
+            $(this).parent().toggleClass("hot")	
+        })
+    })
+</script>
+
+<div id="helpR">
+<div class="helpRT">交易条款</div>
+<div class="edit">
+@Html.Raw(Model.HelpInfo.Description)
+</div>
+</div>
+<div class="clear"></div>
+</div>
+
+
+@Html.Partial("_footer")
+</body>
+</html>
+

@@ -1,0 +1,106 @@
+﻿@model BrnMall.Web.MallAdmin.Models.OrderRefundListModel
+
+@section header{
+<title>订单退款列表</title>
+<link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css"/>
+<script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+<script type="text/javascript" src="/admin_mall/scripts/showlist.js"></script>
+<link type="text/css" href="/components/jbox/Skins/Default/jbox.css" rel="stylesheet"/>
+<script type="text/javascript" src="/components/jbox/jquery.jBox-2.3.min.js"></script>
+<script type="text/javascript" src="/admin_mall/scripts/selectlist.js"></script>
+}
+
+@section body{
+<h1 class="rightH1">
+订单管理 &gt;&gt; 退款列表
+<div class="right">
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</h1>
+@using (Html.BeginForm("refundlist", "order"))
+{
+<div class="dataListSearch">
+<table height="32">
+        <tbody>
+        <tr>
+        <td width="35"><img id="searchImg" src="/admin_mall/images/search1.gif"/></td>
+        <td>商品店铺：</td>
+        <td width="100">
+        <div class="selectBt">
+            <input type="button" value="@Model.StoreName" onclick="openStoreSelectLayer(this)"  style="height:22px; line-height:22px;background:url(/admin_mall/images/selectbgico.gif) no-repeat 6px center; padding-left:22px; padding-right:10px;"/>
+            <input type="hidden" class="StoreId" id="StoreId" name="StoreId" value="@Model.StoreId" />
+            <input type="hidden" class="StoreName" id="StoreName" name="StoreName" value="@Model.StoreName" />
+        </div>
+        </td>
+        <td>订单编号：</td>
+        <td width="130">
+          	@Html.TextBox("OSN", Model.OSN, new { height = "18" })
+        </td>
+       <td>
+       <input id="Search" name="Search" type="image" class="searchBut submit" src="/admin_mall/images/s.jpg" />
+       </td>
+      </tr>
+     </tbody></table>
+</div>
+
+<div class="dataList">
+<table width="100%">
+<thead>
+  <tr>
+    <th width="10" align="center"></th>
+    <th width="160" align="left" >订单编号</th>
+    <th width="140" align="left" >申请时间</th>
+    <th width="80" align="left" >支付方式</th>
+    <th width="150" align="left" >支付单号</th>
+    <th width="70" align="left" >支付金额</th>
+    <th width="70" align="left" >退款金额</th>
+    <th width="60" align="left" >状态</th>
+    <th align="left" >退款单号</th>
+    <th width="130" align="left" >退款时间</th>
+    </tr>
+</thead>
+  <tbody>
+  @foreach (OrderRefundInfo info in Model.OrderRefundList)
+  {
+  <tr>
+    <td></td>
+    <td>@info.OSN</td>
+    <td>@info.ApplyTime</td>
+    <td>@info.PayFriendName</td>
+    <td>@info.PaySN</td>
+    <td>@info.PayMoney</td>
+    <td>@info.RefundMoney</td>
+    <td>
+        @if (info.State == (int)OrderRefundState.Applied)
+        { 
+            @:已申请
+        }
+        else if (info.State == (int)OrderRefundState.Sended)
+        { 
+            @:已发送
+        }
+        else if (info.State == (int)OrderRefundState.Reached)
+        { 
+            @:已到账
+        }
+    </td>
+    <td>@info.RefundSN</td>
+    <td>
+        @if (info.State != (int)OrderRefundState.Applied)
+        { 
+            @info.RefundTime
+        }
+    </td>
+    </tr>
+  }
+</tbody>
+</table>
+</div>
+<div class="dataListEdit">
+<div class="page">
+    @Html.MallAdminPager(Model.PageModel)
+</div>
+</div>
+}
+}

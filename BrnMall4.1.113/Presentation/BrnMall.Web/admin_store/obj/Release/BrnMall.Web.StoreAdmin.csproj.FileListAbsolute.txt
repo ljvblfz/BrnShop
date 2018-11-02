@@ -1,0 +1,9 @@
+C:\Users\zm\Desktop\工作\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.Web.StoreAdmin.dll
+C:\Users\zm\Desktop\工作\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.Web.StoreAdmin.pdb
+C:\Users\zm\Desktop\工作\BrnMall\Presentation\BrnMall.Web\admin_store\obj\Release\BrnMall.Web.StoreAdmin.dll
+C:\Users\zm\Desktop\工作\BrnMall\Presentation\BrnMall.Web\admin_store\obj\Release\BrnMall.Web.StoreAdmin.pdb
+D:\工作\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.Web.StoreAdmin.dll
+D:\工作\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.Web.StoreAdmin.pdb
+D:\工作\BrnMall\Presentation\BrnMall.Web\admin_store\obj\Release\BrnMall.Web.StoreAdmin.csprojResolveAssemblyReference.cache
+D:\工作\BrnMall\Presentation\BrnMall.Web\admin_store\obj\Release\BrnMall.Web.StoreAdmin.dll
+D:\工作\BrnMall\Presentation\BrnMall.Web\admin_store\obj\Release\BrnMall.Web.StoreAdmin.pdb

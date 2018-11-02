@@ -1,0 +1,12 @@
+C:\Users\zm\Desktop\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.SMSStrategy.BrnMall.dll
+C:\Users\zm\Desktop\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.SMSStrategy.BrnMall.pdb
+C:\Users\zm\Desktop\BrnMall\Strategies\BrnMall.SMSStrategy.BrnMall\obj\Release\BrnMall.SMSStrategy.BrnMall.dll
+C:\Users\zm\Desktop\BrnMall\Strategies\BrnMall.SMSStrategy.BrnMall\obj\Release\BrnMall.SMSStrategy.BrnMall.pdb
+C:\Users\zm\Desktop\工作\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.SMSStrategy.BrnMall.dll
+C:\Users\zm\Desktop\工作\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.SMSStrategy.BrnMall.pdb
+C:\Users\zm\Desktop\工作\BrnMall\Strategies\BrnMall.SMSStrategy.BrnMall\obj\Release\BrnMall.SMSStrategy.BrnMall.dll
+C:\Users\zm\Desktop\工作\BrnMall\Strategies\BrnMall.SMSStrategy.BrnMall\obj\Release\BrnMall.SMSStrategy.BrnMall.pdb
+D:\工作\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.SMSStrategy.BrnMall.dll
+D:\工作\BrnMall\Presentation\BrnMall.Web\bin\BrnMall.SMSStrategy.BrnMall.pdb
+D:\工作\BrnMall\Strategies\BrnMall.SMSStrategy.BrnMall\obj\Release\BrnMall.SMSStrategy.BrnMall.dll
+D:\工作\BrnMall\Strategies\BrnMall.SMSStrategy.BrnMall\obj\Release\BrnMall.SMSStrategy.BrnMall.pdb

@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0AEBBF74-1EAB-4CEB-9780-4E42D5A0E663}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BrnMall.Web.Mobile</RootNamespace>
+    <AssemblyName>BrnMall.Web.Mobile</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\RefDLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AreaRegistration.cs" />
+    <Compile Include="controllers\AccountController.cs" />
+    <Compile Include="controllers\CartController.cs" />
+    <Compile Include="controllers\CatalogController.cs" />
+    <Compile Include="controllers\CategoryController.cs" />
+    <Compile Include="controllers\CouponController.cs" />
+    <Compile Include="controllers\HomeController.cs" />
+    <Compile Include="controllers\OrderController.cs" />
+    <Compile Include="controllers\StoreController.cs" />
+    <Compile Include="controllers\ToolController.cs" />
+    <Compile Include="controllers\UCenterController.cs" />
+    <Compile Include="models\AccountModel.cs" />
+    <Compile Include="models\CartModel.cs" />
+    <Compile Include="models\CatalogModel.cs" />
+    <Compile Include="models\CategoryModel.cs" />
+    <Compile Include="models\OrderModel.cs" />
+    <Compile Include="models\StoreModel.cs" />
+    <Compile Include="models\UCenterModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\account.css" />
+    <Content Include="css\base.css" />
+    <Content Include="css\buy.css" />
+    <Content Include="css\content.css" />
+    <Content Include="css\home.css" />
+    <Content Include="css\list.css" />
+    <Content Include="css\store.css" />
+    <Content Include="css\ucenter.css" />
+    <Content Include="images\arrow.png" />
+    <Content Include="images\bg_line.png" />
+    <Content Include="images\card-border.png" />
+    <Content Include="images\cartNull.png" />
+    <Content Include="images\change.png" />
+    <Content Include="images\check.png" />
+    <Content Include="images\checked.png" />
+    <Content Include="images\del.png" />
+    <Content Include="images\del2.png" />
+    <Content Include="images\home-icons.png" />
+    <Content Include="images\icon.png" />
+    <Content Include="images\icon10.png" />
+    <Content Include="images\icon11.png" />
+    <Content Include="images\icon12.png" />
+    <Content Include="images\icon13.png" />
+    <Content Include="images\icon14.png" />
+    <Content Include="images\icon18.png" />
+    <Content Include="images\icon19.png" />
+    <Content Include="images\icon2.png" />
+    <Content Include="images\icon20.png" />
+    <Content Include="images\icon21.png" />
+    <Content Include="images\icon23.png" />
+    <Content Include="images\icon24.png" />
+    <Content Include="images\icon29.png" />
+    <Content Include="images\icon2b.png" />
+    <Content Include="images\icon3.png" />
+    <Content Include="images\icon37.png" />
+    <Content Include="images\icon4.png" />
+    <Content Include="images\icon5.png" />
+    <Content Include="images\icon9.png" />
+    <Content Include="images\icon_detail.png" />
+    <Content Include="images\icon_heart.png" />
+    <Content Include="images\icon_order.png" />
+    <Content Include="images\icon_pop_star2.png" />
+    <Content Include="images\icon_slid.png" />
+    <Content Include="images\icon_star2.png" />
+    <Content Include="images\icon_star3.png" />
+    <Content Include="images\icon_suc.png" />
+    <Content Include="images\line2.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\member-icons.png" />
+    <Content Include="images\member.png" />
+    <Content Include="images\memberBg.png" />
+    <Content Include="images\msj.jpg" />
+    <Content Include="images\radio.png" />
+    <Content Include="images\radio1.png" />
+    <Content Include="images\yhj-2.png" />
+    <Content Include="images\yhj-line.png" />
+    <Content Include="images\yhj-line1.png" />
+    <Content Include="images\yhj.png" />
+    <Content Include="scripts\account.js" />
+    <Content Include="scripts\cart.js" />
+    <Content Include="scripts\common.js" />
+    <Content Include="scripts\jquery.js" />
+    <Content Include="scripts\order.js" />
+    <Content Include="scripts\product.js" />
+    <Content Include="scripts\region.js" />
+    <Content Include="scripts\swiper.js" />
+    <Content Include="scripts\swiper.css" />
+    <Content Include="scripts\ucenter.order.js" />
+    <Content Include="scripts\ucenter.safe.js" />
+    <Content Include="scripts\ucenter.user.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="views\account\findpwd.cshtml" />
+    <None Include="views\account\login.cshtml" />
+    <None Include="views\account\register.cshtml" />
+    <None Include="views\account\resetpwd.cshtml" />
+    <None Include="views\account\selectfindpwdtype.cshtml" />
+    <None Include="views\cart\ajaxindex.cshtml" />
+    <None Include="views\cart\index.cshtml" />
+    <None Include="views\catalog\category.cshtml" />
+    <None Include="views\catalog\topic.cshtml" />
+    <None Include="views\catalog\product.cshtml" />
+    <None Include="views\catalog\productconsultlist.cshtml" />
+    <None Include="views\catalog\productdetails.cshtml" />
+    <None Include="views\catalog\productreviewlist.cshtml" />
+    <None Include="views\catalog\productsuitlist.cshtml" />
+    <None Include="views\catalog\search.cshtml" />
+    <None Include="views\category\list.cshtml" />
+    <None Include="views\home\index.cshtml" />
+    <None Include="views\order\confirmorder.cshtml" />
+    <None Include="views\order\payresult.cshtml" />
+    <None Include="views\order\payshow.cshtml" />
+    <None Include="views\order\submitresult.cshtml" />
+    <None Include="views\shared\prompt.cshtml" />
+    <None Include="views\shared\_header.cshtml" />
+    <None Include="views\shared\_footer.cshtml" />
+    <None Include="views\shared\_layout.cshtml" />
+    <None Include="views\store\class.cshtml" />
+    <None Include="views\store\coupontypelist.cshtml" />
+    <None Include="views\store\index.cshtml" />
+    <None Include="views\store\search.cshtml" />
+    <None Include="views\ucenter\account.cshtml" />
+    <None Include="views\ucenter\addshipaddress.cshtml" />
+    <None Include="views\ucenter\couponlist.cshtml" />
+    <None Include="views\ucenter\editshipaddress.cshtml" />
+    <None Include="views\ucenter\index.cshtml" />
+    <None Include="views\ucenter\orderactionlist.cshtml" />
+    <None Include="views\ucenter\orderinfo.cshtml" />
+    <None Include="views\ucenter\orderlist.cshtml" />
+    <None Include="views\ucenter\paycredit.cshtml" />
+    <None Include="views\ucenter\revieworder.cshtml" />
+    <None Include="views\ucenter\safesuccess.cshtml" />
+    <None Include="views\ucenter\safeupdate.cshtml" />
+    <None Include="views\ucenter\safeverify.cshtml" />
+    <None Include="views\ucenter\shipaddresslist.cshtml" />
+    <None Include="views\Web.config" />
+    <None Include="views\_ViewStart.cshtml" />
+    <None Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Libraries\BrnMall.Core\BrnMall.Core.csproj">
+      <Project>{089949bc-b250-42f0-8853-fada0c2a61ab}</Project>
+      <Name>BrnMall.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Libraries\BrnMall.Services\BrnMall.Services.csproj">
+      <Project>{f0648a58-1818-4760-a26c-010a7e6b6e75}</Project>
+      <Name>BrnMall.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BrnMall.Web.Framework\BrnMall.Web.Framework.csproj">
+      <Project>{d28523f3-3c46-429f-8dd4-6bbf2a2d57c8}</Project>
+      <Name>BrnMall.Web.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

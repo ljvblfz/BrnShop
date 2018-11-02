@@ -1,0 +1,175 @@
+﻿@model BrnMall.Web.Models.OrderInfoModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>订单信息-@{@WorkContext.MallConfig.SiteTitle}</title>
+    @Html.Raw(WorkContext.MallConfig.SEOKeyword)
+    @Html.Raw(WorkContext.MallConfig.SEODescription)
+    <link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="@{@WorkContext.CSSCDN}/css/ucenter.css" rel="stylesheet" type="text/css" />
+    <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/common.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/ucenter.user.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        uid = @WorkContext.Uid;
+        isGuestSC = @WorkContext.MallConfig.IsGuestSC;
+        scSubmitType = @WorkContext.MallConfig.SCSubmitType;
+    </script>
+</head>
+
+<body>
+@Html.Partial("_header")
+
+
+<div class="breadcrumb box">
+    <strong>会员中心</strong>
+    <span>&nbsp;&gt;&nbsp;<a href="@Url.Action("orderlist")">订单中心</a>&nbsp;&gt;&nbsp;<a href="@Url.Action("orderinfo", new RouteValueDictionary { { "oid", Model.OrderInfo.Oid } })">订单：@Model.OrderInfo.OSN</a></span>
+</div>
+
+<div class="box">
+<h2 class="DDstatus">订单号：@Model.OrderInfo.OSN 状态：
+<font color="#12A000">
+    @{
+        OrderState orderState = (OrderState)Model.OrderInfo.OrderState;
+    }
+    @switch (orderState)
+    {
+        case OrderState.WaitPaying:
+            @:等待付款
+            break;
+        case OrderState.Confirming:
+            @:待确认
+            break;
+        case OrderState.Confirmed:
+            @:已确认
+            break;
+        case OrderState.PreProducting:
+            @:备货中
+            break;
+        case OrderState.Sended:
+            @:已发货
+            break;
+        case OrderState.Received:
+            @:已收货
+            break;
+        case OrderState.Cancelled:
+            @:取消
+            break;
+        case OrderState.Locked:
+            @:锁定
+            break;
+        default:
+            @:未知状态
+            break;
+    }
+</font>
+</h2>
+
+<div id="DDcon">
+<ul>
+    <li><a href="#" class="hot">订单跟踪</a></li>
+    @*<li><a href="#">付款信息</a></li>*@
+    <div class="clear"></div>
+</ul>
+<div style="padding:15px;">
+<table width="100%" cellpadding="0" cellspacing="0" class="ddgzTable">
+  <thead>
+    <tr>
+      <th width="15%" align="left"><strong>处理时间</strong></th>
+      <th width="50%" align="left"><strong>处理信息</strong></th>
+      <th width="35%" align="left"><strong>操作人</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (OrderActionInfo info in Model.OrderActionList)
+    {
+    <tr>
+      <td>@info.ActionTime</td>
+      <td>@info.ActionDes</td>
+      <td>@info.RealName</td>
+    </tr>
+    }
+  </tbody>
+</table>
+@*<b style="padding:10px 0; display:block;">送货方式：普通快递 承运人：北京盛泰物流(大家电外埠)</b>*@
+</div>
+
+</div>
+
+
+
+<div id="DDinfo">
+<h2>订单信息</h2>
+<div id="DDinfoCon">
+<dl>
+<dt>收货人信息</dt>
+<dd>收 货 人：@Model.OrderInfo.Consignee</dd>
+<dd>收货地址：@Model.RegionInfo.ProvinceName @Model.RegionInfo.CityName @Model.RegionInfo.Name @Model.OrderInfo.Address</dd>
+<dd>手机号码：@Model.OrderInfo.Mobile</dd>
+</dl>
+
+<dl>
+<dt>支付及配送方式</dt>
+<dd>支付方式：@Model.OrderInfo.PayFriendName</dd>
+<dd>配送方式：@Model.OrderInfo.ShipCoName</dd>
+</dl>
+<dl style="border-bottom:none;">
+<dt>商品清单</dt>
+<dd style="padding-top:10px;">
+<table width="100%" border="0" cellspacing="0" class="dingdan">
+<thead>
+  <tr>
+    <th>商品</th>
+    <th>价格</th>
+    <th>数量</th>
+    <th>合计</th>
+    </tr>
+</thead>
+<tbody>
+    @foreach (OrderProductInfo info in Model.OrderProductList)
+    {
+    <tr>
+        <td>
+            <div class="proList">
+                <img src="@{@WorkContext.ImageCDN}/upload/store/@info.StoreId/product/show/thumb60_60/@info.ShowImg" width="50" height="50" />
+                <a href="@Url.Action("product", "catalog", new RouteValueDictionary { { "pid", info.Pid } })">@info.Name<br /><br /><br /></a>
+                <div class="clear"></div>
+            </div>
+        </td>
+        <td>￥@info.DiscountPrice</td>
+        <td>@info.RealCount</td>
+        <td>@Html.Raw((info.DiscountPrice * info.BuyCount).ToString())</td>
+    </tr>
+    }
+</tbody>
+</table>
+</dd>
+</dl>
+
+
+</div>
+
+<div class="right DDsum">
+<p><i>￥@Model.OrderInfo.ProductAmount</i><span>总商品金额：</span></p>
+<p><i>￥@Model.OrderInfo.FullCut</i><span>- 返现：</span></p>
+<p><i>￥@Model.OrderInfo.ShipFee</i><span>+ 运费：</span></p>
+<p><i>￥@Model.OrderInfo.CouponMoney</i><span>- 优惠劵：</span></p>
+<p><i>￥@Model.OrderInfo.PayCreditMoney</i><span>- @WorkContext.PayCreditName：</span></p>
+<div class="clear"></div>
+<hr color="#ddd" size="1" />
+<b>应付总额：<em>￥@Model.OrderInfo.SurplusMoney</em></b>
+</div>
+<div class="clear"></div>
+</div>
+
+</div>
+
+
+
+@Html.Partial("_footer")
+</body>
+</html>

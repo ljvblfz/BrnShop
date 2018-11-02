@@ -1,0 +1,50 @@
+﻿@model BrnMall.Web.StoreAdmin.Models.StoreClassListModel
+
+@section header{
+    <title>店铺分类列表</title>
+    <link type="text/css" rel="stylesheet" href="/admin_store/css/site.css"/>
+    <script type="text/javascript" src="/admin_store/scripts/jquery.js"></script>
+    <script type="text/javascript" src="/admin_store/scripts/showlist.js"></script>
+}
+
+@section body{
+    <h1 class="rightH1">
+        店铺管理 &gt;&gt; 店铺分类列表
+        <div class="right">
+            <a href="@Url.Action("addstoreclass")" class="menuBT"><img src="/admin_store/images/add.jpg" />添加</a>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </h1>
+<div class="table_top"></div>
+
+<div id="categoryTree">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">名称</th>
+<th width="50" align="left">排序</th>
+<th width="76" align="left">管理操作</th>
+</tr>
+</thead>
+<tbody>
+    @foreach (StoreClassInfo info in Model.StoreClassList)
+    {
+<tr>
+<th>@Html.Raw(CommonHelper.GetHtmlSpan(info.Layer - 1))<span></span>@info.Name</th>
+<td>@info.DisplayOrder</td>
+<td>
+    <a href="@Url.Action("editstoreclass", new { storeCid = info.StoreCid })" class="editOperate">[修改]</a>
+@if(info.HasChild == 0)
+{
+    <a href="@Url.Action("delstoreclass", new { storeCid = info.StoreCid })" class="deleteOperate">[删除]</a>
+}
+  </td>
+</tr>
+        }
+</tbody>
+</table>
+</div>
+
+<div class="table_bottom"></div>
+    }

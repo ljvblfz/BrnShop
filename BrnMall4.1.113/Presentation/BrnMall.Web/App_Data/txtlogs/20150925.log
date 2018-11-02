@@ -1,0 +1,6 @@
+Log Entry : 2015年09月25日 17:48:40
+方法:Void ValidateString(System.String, System.String, System.Web.Util.RequestValidationSource),异常信息:从客户端(StoreName="<a>4444</a>小乐儿店铺")中检测到有潜在危险的 Request.Form 值。
+------------------------------------
+Log Entry : 2015年09月25日 17:49:35
+方法:Void ValidateString(System.String, System.String, System.Web.Util.RequestValidationSource),异常信息:从客户端(ProductName="<a></a>微软（Microsoft）...")中检测到有潜在危险的 Request.Form 值。
+------------------------------------

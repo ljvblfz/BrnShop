@@ -1,0 +1,103 @@
+﻿@model BrnMall.Core.PartUserInfo
+@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>账户安全-@{@WorkContext.MallConfig.SiteTitle}</title>
+    @Html.Raw(WorkContext.MallConfig.SEOKeyword)
+    @Html.Raw(WorkContext.MallConfig.SEODescription)
+    <link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="@{@WorkContext.CSSCDN}/css/ucenter.css" rel="stylesheet" type="text/css" />
+    <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/common.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        uid = @WorkContext.Uid;
+        isGuestSC = @WorkContext.MallConfig.IsGuestSC;
+        scSubmitType = @WorkContext.MallConfig.SCSubmitType;
+    </script>
+</head>
+
+<body>
+@Html.Partial("_header")
+
+<div class="bigBox" id="member">
+<div class="box">
+@Html.Partial("_menu")
+<div id="memberR">
+    <h2 id="memberRT">账户安全</h2>
+
+    <div class="safe">
+        <s class="ico1"></s>
+        <b>登录密码</b>
+        <p>互联网账号存在被盗风险，建议您定期更改密码以保护账户安全。</p>
+        <a href="@Url.Action("safeverify", new RouteValueDictionary { { "act", "updatePassword" } })" class="greenBT">修改</a>
+        <div class="clear"></div>
+    </div>
+
+    <div class="safe">
+        <s class="@if (Model.VerifyEmail == 1){<text>ico1</text>}else{<text>ico2</text>}"></s>
+        <b>邮箱验证</b> 
+        <p>@if (Model.VerifyEmail == 0){<text>建议您绑定并验证邮箱以保护账户安全</text>}else{<text>邮箱已验证，可用于快速找回登录密码，接收账户余额变动提醒。</text>}</p> 
+        <a href="@Url.Action("safeverify", new RouteValueDictionary { { "act", "updateEmail" } })" class="greenBT">
+            @if (Model.Email.Length > 0)
+            {
+                if (Model.VerifyEmail == 0)
+                {
+                    @:验证
+                }
+                else
+                {
+                    @:修改
+                }
+            }
+            else
+            {
+                @:绑定
+            }
+        </a>
+        <div class="clear"></div>
+    </div>
+
+    <div class="safe">
+        <s class="@if (Model.VerifyMobile == 1){<text>ico1</text>}else{<text>ico2</text>}"></s>
+        <b>手机验证</b> 
+        <p>@if (Model.VerifyMobile == 0){<text>建议您绑定并验证手机以保护账户安全</text>}else{<text>您验证的手机：<strong>@Html.Raw(CommonHelper.HideMobile(Model.Mobile))</strong> 若已丢失或停用，请立即更换，<span style="color:#cc0000;">避免账户被盗</span></text>}</p> 
+        <a href="@Url.Action("safeverify", new RouteValueDictionary { { "act", "updateMobile" } })" class="greenBT">
+            @if (Model.Mobile.Length > 0)
+            {
+                if (Model.VerifyMobile == 0)
+                {
+                    @:验证
+                }
+                else
+                {
+                    @:修改
+                }
+            }
+            else
+            {
+                @:绑定
+            }
+        </a>
+        <div class="clear"></div>
+    </div>
+
+    <div class="safeInfo">
+        <h2>安全服务提示</h2>
+        <p>1.确认您登录的是BrnMall网址@*<a href="#">http://www.brnmall.com</a>*@，注意防范进入钓鱼网站，不要轻信各种即时通讯工具发送的商品或支付链接，谨防网购诈骗。 </p>
+        <p>2.建议您安装杀毒软件，并定期更新操作系统等软件补丁，确保账户及交易安全。 </p>
+    </div>
+
+</div>
+
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+
+@Html.Partial("_footer")
+</body>
+</html>

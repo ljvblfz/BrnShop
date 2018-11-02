@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D28523F3-3C46-429F-8DD4-6BBF2A2D57C8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BrnMall.Web.Framework</RootNamespace>
+    <AssemblyName>BrnMall.Web.Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\BaseAppController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BaseMallAdminController.cs" />
+    <Compile Include="Controllers\BaseMobileController.cs" />
+    <Compile Include="Controllers\BaseStoreAdminController.cs" />
+    <Compile Include="Controllers\BaseWebController.cs" />
+    <Compile Include="ImageResult.cs" />
+    <Compile Include="Pager\Base\PageModel.cs" />
+    <Compile Include="Pager\Base\Pager.cs" />
+    <Compile Include="Pager\MallAdminPager.cs" />
+    <Compile Include="Pager\PagerHtmlExtension.cs" />
+    <Compile Include="Pager\StoreAdminPager.cs" />
+    <Compile Include="Pager\WebPager.cs" />
+    <Compile Include="PromptModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Theme\ThemeBuildManagerViewEngine .cs" />
+    <Compile Include="Theme\ThemeRazorViewEngine.cs" />
+    <Compile Include="Theme\ThemeVirtualPathProviderViewEngine.cs" />
+    <Compile Include="Validators\EmailAttribute.cs" />
+    <Compile Include="Validators\IdCardAttribute.cs" />
+    <Compile Include="Validators\MobileAttribute.cs" />
+    <Compile Include="Validators\NotLess\DateTimeNotLessAttribute.cs" />
+    <Compile Include="Validators\NotLess\DecimailNotLessAttribute.cs" />
+    <Compile Include="Validators\NotLess\IntNotLessAttribute.cs" />
+    <Compile Include="Validators\PhoneAttribute.cs" />
+    <Compile Include="Validators\UrlAttribute.cs" />
+    <Compile Include="Validators\ZipCodeAttribute.cs.cs" />
+    <Compile Include="ViewPages\AppViewPage.cs" />
+    <Compile Include="ViewPages\MallAdminViewPage.cs" />
+    <Compile Include="ViewPages\MobileViewPage.cs" />
+    <Compile Include="ViewPages\StoreAdminViewPage.cs" />
+    <Compile Include="ViewPages\WebViewPage.cs" />
+    <Compile Include="WorkContext\AppWorkContext.cs" />
+    <Compile Include="WorkContext\MallAdminWorkContext.cs" />
+    <Compile Include="WorkContext\MobileWorkContext.cs" />
+    <Compile Include="WorkContext\StoreAdminWorkContext.cs" />
+    <Compile Include="WorkContext\WebWorkContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\BrnMall.Core\BrnMall.Core.csproj">
+      <Project>{089949bc-b250-42f0-8853-fada0c2a61ab}</Project>
+      <Name>BrnMall.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\BrnMall.Services\BrnMall.Services.csproj">
+      <Project>{f0648a58-1818-4760-a26c-010a7e6b6e75}</Project>
+      <Name>BrnMall.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

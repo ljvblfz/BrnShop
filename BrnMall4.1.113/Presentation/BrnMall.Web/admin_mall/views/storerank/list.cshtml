@@ -1,0 +1,56 @@
+﻿@model BrnMall.Web.MallAdmin.Models.StoreRankListModel
+
+@section header{
+<title>店铺等级列表</title>
+<link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css"/>
+<script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+<script type="text/javascript" src="/admin_mall/scripts/showlist.js"></script>
+}
+
+@section body{
+<h1 class="rightH1">
+店铺管理 &gt;&gt; 店铺等级
+<div class="right">
+<a href="@Url.Action("add")" class="menuBT"><img src="/admin_mall/images/add.jpg"/>添加</a>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</h1>
+        <div class="table_top">
+        </div>
+  <div class="dataList">
+<table width="100%">
+<thead>
+  <tr>
+    <th width="20"></th>
+    <th align="left">等级名称</th>
+    <th width="120" align="left">诚信下限</th>  
+    <th width="120" align="left">诚信下限</th>  
+    <th width="120" align="left">商品数量</th>  
+    <th width="76" align="left">管理操作</th>
+    </tr>
+</thead>
+  <tbody>
+  @foreach (StoreRankInfo info in Model.StoreRankList)
+  {
+  <tr>
+    <td></td>
+    <td>@info.Title</td>
+    <td>@info.HonestiesLower</td>
+    <td>@info.HonestiesUpper</td>
+    <td>@info.ProductCount</td>
+    <td>
+        @Html.ActionLink("[编辑]", "edit", new { storeRid = info.StoreRid }, new { @class = "editOperate" })
+        @Html.ActionLink("[删除]", "del", new { storeRid = info.StoreRid }, new { @class = "deleteOperate" })
+    </td>
+    </tr>
+  }
+</tbody>
+</table>
+</div>
+<div class="table_bottom" style=" margin-left:15px;">
+      <div>(1)第一个店铺等级的诚信下限必须为"0"，最后一个店铺等级的诚信上限必须为"-1"。</div>
+      <div>(2)店铺等级的诚信限额必须具有连贯性,即一个店铺等级的诚信下限必须等于它上一个店铺等级的诚信上限</div>
+      <div>(3)店铺等级必须依次递增，不能递减或穿插式排列</div>
+</div>
+}

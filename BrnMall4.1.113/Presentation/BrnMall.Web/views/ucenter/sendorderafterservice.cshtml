@@ -1,0 +1,125 @@
+﻿@model BrnMall.Web.Models.SendOrderAfterServiceModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>邮寄-@{@WorkContext.MallConfig.SiteTitle}</title>
+    @Html.Raw(WorkContext.MallConfig.SEOKeyword)
+    @Html.Raw(WorkContext.MallConfig.SEODescription)
+    <link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="@{@WorkContext.CSSCDN}/css/ucenter.css" rel="stylesheet" type="text/css" />
+    <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/region.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/common.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/ucenter.order.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        provinceId = @ViewData["provinceId"]; //省id
+        cityId = @ViewData["cityId"]; //市id
+        countyId = @ViewData["countyId"]; //县或区id
+    </script>
+</head>
+
+<body>
+@Html.Partial("_header")
+
+<div class="bigBox" id="member">
+<div class="box">
+@Html.Partial("_menu")
+<div id="memberR">
+    <h2 id="memberRT">我要邮寄</h2>
+    <form name="sendOrderAfterServiceForm" action="">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="memberTable">
+         <tr>
+            <th width="100" align="right">配送公司：</th>
+            <td> 
+                <select id="shipCoId" name="shipCoId">
+                    <option selected="selected" value="0">请选择</option>
+                    @foreach(ShipCompanyInfo info in Model.ShipCompanyList)
+                    {
+                    <option value="@info.ShipCoId">@info.Name</option>
+                    }
+                </select>
+            </td>
+          </tr>
+
+          <tr>
+            <th width="100" align="right">邮寄单号：</th>
+            <td><input type="text" name="shipSN" value="" class="text" style="width:150px;" /></td>
+          </tr>
+
+        <tr>
+            <th width="100" align="right">收件人：</th>
+            <td><input type="text" name="consignee" value="" class="text" style="width:150px;" /></td>
+          </tr>
+
+        <tr>
+            <th width="100" align="right">手机号：</th>
+            <td><input type="text" name="mobile" value="" class="text" style="width:150px;" /></td>
+          </tr>
+
+        <tr>
+            <th width="100" align="right">收货地址：</th>
+            <td> 
+                <select id="provinceId" name="provinceId">
+                <option selected="selected" value="-1">请选择</option>
+                </select>
+                <select id="cityId" name="cityId">
+                <option selected="selected" value="-1">请选择</option>
+                </select>
+                <select id="regionId" name="regionId">
+                <option selected="selected" value="-1">请选择</option>
+                </select>
+            </td>
+          </tr>
+
+          <tr>
+            <th width="80" align="right">详细地址：</th>
+            <td><textarea rows="5" cols="40" name="address" class="text" style=" height:100px;"></textarea></td>
+          </tr>
+
+          <tr>
+            <th width="80" align="right">&nbsp;</th>
+            <td><a href="javascript:;" class="greenBT" style="font-size:14px; padding:3px 20px;" onclick="sendOrderAfterService(@Model.OrderAfterServiceInfo.ASId)">提交</a></td>
+          </tr>
+        </table>
+    </form>
+    <script type="text/javascript">
+        //绑定省列表的改变事件
+        $("#provinceId").change(function(){
+            var selectedProvinceId = $(this).find("option:selected").val();
+            if (selectedProvinceId > 0) {
+                $("#regionId").html("<option value='-1'>请选择</option>");
+                bindCityList(selectedProvinceId, document.getElementById("cityId"));
+            }
+        })
+
+        //绑定市列表的改变事件
+        $("#cityId").change(function(){
+            var selectedCityId = $(this).find("option:selected").val();
+            if (selectedCityId > 0) {
+                bindCityList(selectedCityId, document.getElementById("regionId"));
+            }
+        })
+
+        //绑定省列表
+        bindProvinceList(document.getElementById("provinceId"), provinceId);
+
+        if (cityId > 0) {
+            bindCityList(provinceId, document.getElementById("cityId"), cityId);
+            bindCountyList(cityId, document.getElementById("regionId"), countyId);
+        }
+    </script>
+</div>
+
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+
+
+@Html.Partial("_footer")
+</body>
+</html>

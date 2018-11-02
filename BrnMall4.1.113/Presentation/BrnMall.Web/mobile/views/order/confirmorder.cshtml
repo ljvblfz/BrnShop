@@ -1,0 +1,213 @@
+﻿@model BrnMall.Web.Mobile.Models.ConfirmOrderModel
+@{
+    Layout = null;
+}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>确认订单-@{@WorkContext.MallConfig.SiteTitle}触屏版</title>
+    @Html.Raw(WorkContext.MallConfig.SEOKeyword)
+    @Html.Raw(WorkContext.MallConfig.SEODescription)
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="@{@WorkContext.CSSCDN}/mobile/css/base.css" rel="stylesheet" type="text/css">
+    <link href="@{@WorkContext.CSSCDN}/mobile/css/buy.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="@{@WorkContext.ScriptCDN}/mobile/scripts/jquery.js"></script>
+    <script type="text/javascript" src="@{@WorkContext.ScriptCDN}/mobile/scripts/common.js"></script>
+    <script type="text/javascript" src="@{@WorkContext.ScriptCDN}/mobile/scripts/order.js"></script>
+    <script type="text/javascript" src="@{@WorkContext.ScriptCDN}/mobile/scripts/region.js"></script>
+</head>
+
+<body>
+@Html.Partial("_header")
+<script type="text/javascript">
+    $("#headerTitle").html("确认订单");
+</script>
+
+<div id="mainBlock">
+
+<div class="allCon">
+<div class="title">收货人信息</div>
+<div class="con">
+<a href="javascript:getShipAddressList()">
+@if (Model.DefaultFullShipAddressInfo != null)
+{
+<p> @Model.DefaultFullShipAddressInfo.Consignee @Model.DefaultFullShipAddressInfo.Mobile </p>
+<p style="font-size:14px;"> @Model.DefaultFullShipAddressInfo.ProvinceName @Model.DefaultFullShipAddressInfo.CityName @Model.DefaultFullShipAddressInfo.CountyName @Model.DefaultFullShipAddressInfo.Address </p>
+}
+else
+{ 
+    <text><p>您还没有配送地址，请先添加。<a href="javascript:void(0)" onclick="getShipAddressList()">点击添加</a><p></text>
+}
+</a>
+<span class="icon-arr"></span>
+</div>
+
+<div class="title">支付信息</div>
+<div class="con">
+@if(Model.PayMode == 0)
+{
+    <a href="javascript:showPayModeList()" id="payModeShowBlock"><span>货到付款</span></a>
+}
+else
+{
+    <a href="javascript:showPayModeList()" id="payModeShowBlock"><span>在线付款</span></a>
+}
+<span class="icon-arr"></span>
+</div>
+
+<div class="title">其它信息</div>
+<div class="con">
+<a href="javascript:getValidCouponList()"><span>选择优惠券</span></a>
+<span class="icon-arr"></span>
+</div>
+<div id="selectCouponList"></div>
+
+<div class="con">
+<a href="javascript:void(0)"><span>@Model.PayCreditName 支付</span><span class="tip">可用 @Model.MaxUsePayCredits @Model.PayCreditName，抵￥ @Html.Raw(Credits.PayCreditsToMoney(Model.MaxUsePayCredits).ToString()) 元</span></a>
+<input class="checkbox" type="checkbox" value="@Model.MaxUsePayCredits" id="payCreditCount" name="payCreditCount" style="position:absolute; right:10px; top:50%; margin-top:-9px;" />
+</div>
+</div>
+
+<div class="orderInfo">
+<span class="bg-border"><span class="icon"></span></span>
+<div style="padding: 10px 30px;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr><td>商品金额</td><td align="right">￥@Model.AllProductAmount</td></tr>
+  <tr><td>返&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现</td><td align="right">-￥@Model.AllFullCut</td></tr>
+  <tr><td>运&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;费</td><td align="right">￥@Model.AllShipFee</td></tr>
+  <tr><td>应付金额</td><td align="right" class="allPrice">￥@Model.AllOrderAmount</td></tr>
+</table>
+</div>
+</div>
+
+<input type="hidden" id="allFullCut" value="@Model.AllFullCut" />
+<form action="@Url.Action("confirmorder")" method="post" id="confirmOrderForm">
+    <input type="hidden" name="selectedCartItemKeyList" id="selectedCartItemKeyList" value="@Model.SelectedCartItemKeyList" />
+    @if (Model.DefaultFullShipAddressInfo != null)
+    {
+    <input type="hidden" value="@Model.DefaultFullShipAddressInfo.SAId" name="saId" id="saId" />
+    }
+    else
+    { 
+    <input type="hidden" value="0" name="saId" id="saId" />
+    }
+    <input type="hidden" value="@Model.PayMode" name="payMode" id="payMode" />
+</form>
+<a href="javascript:submitOrder()" class="redBt subOrder">提交订单</a>
+@*<a href="javascript:void(0)"  class="errorBt subOrder">提交订单</a>*@
+
+</div>
+
+<div class="allCon" id="shipAddressListBlock" style="display:none;"></div>
+<form name="addShipAddressForm" action="" id="addShipAddressBlock" style="display:none;">
+<div class="allCon">
+<div class="title">收货人地址</div>
+
+<div class="ADcell">
+<div class="ADcellCon">
+<span>收货人：</span>
+<p><input type="text" name="consignee" class="text" value="" /></p>
+</div>
+<div class="tip" style="display:block;"></div>
+</div>
+
+<div class="ADcell">
+<div class="ADcellCon">
+<span>手机号：</span>
+<p><input type="text" name="mobile" class="text" value="" /></p>
+</div>
+<div class="tip" style="display:block;"></div>
+</div>
+
+<div class="ADcell">
+<div class="ADcellCon">
+<span>所在省：</span>
+<p>
+    <select id="provinceId" name="provinceId" class="select" style="width:100%; padding:4px;">
+    <option selected="selected" value="-1">请选择</option>
+    </select>
+</p>
+</div>
+<div class="tip"></div>
+</div>
+
+<div class="ADcell">
+<div class="ADcellCon">
+<span>所在市：</span>
+<p>
+    <select id="cityId" name="cityId" class="select" style="width:100%; padding:4px;">
+    <option selected="selected" value="-1">请选择</option>
+    </select>
+</p>
+</div>
+<div class="tip"></div>
+</div>
+
+<div class="ADcell">
+<div class="ADcellCon">
+<span>所在县：</span>
+<p>
+    <select id="regionId" name="regionId" class="select" style="width:100%; padding:4px;">
+    <option selected="selected" value="-1">请选择</option>
+    </select>
+</p>
+</div>
+<div class="tip"></div>
+</div>
+
+<div class="ADcell">
+<div class="ADcellCon">
+<span>详细地址：</span>
+<p><input type="text" name="address" class="text" value="" /></p>
+</div>
+<div class="tip" style="display:block;"></div>
+</div>
+
+</div>
+<a href="javascript:void(0)" onclick="javascript:addShipAddress()" class="redBt subOrder">提交</a>
+</form>
+
+<div class="allCon" id="payModeListBlock" style="display:none;">
+<div class="title">支付信息</div>
+<div class="allCell" onclick="selectPayMode(0)"><span class="radio"></span>货到付款</div>
+<div class="allCell" onclick="selectPayMode(1)"><span class="radio"></span>在线付款</div>
+</div>
+
+<div class="allCon" id="validCouponListBlcok" style="display:none;">
+<div class="title">优惠劵</div>
+<div id="validCouponList"></div>
+<a href="javascript:confirmSelectedCoupon()" class="redBt subOrder">确认</a>
+</div>
+
+
+<script type="text/javascript">
+    //绑定省列表的改变事件
+    $("#provinceId").change(function(){
+        var selectedProvinceId = $(this).find("option:selected").val();
+        if (selectedProvinceId > 0) {
+            $("#regionId").html("<option value='-1'>请选择</option>");
+            bindCityList(selectedProvinceId, document.getElementById("cityId"));
+        }
+    })
+
+    //绑定市列表的改变事件
+    $("#cityId").change(function(){
+        var selectedCityId = $(this).find("option:selected").val();
+        if (selectedCityId > 0) {
+            bindCityList(selectedCityId, document.getElementById("regionId"));
+        }
+    })
+
+    //绑定省列表
+    bindProvinceList(document.getElementById("provinceId"), provinceId);
+
+    if (cityId > 0) {
+        bindCityList(provinceId, document.getElementById("cityId"), cityId);
+        bindCountyList(cityId, document.getElementById("regionId"), countyId);
+    }
+</script>
+</body>
+</html>

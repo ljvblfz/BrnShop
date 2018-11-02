@@ -1,0 +1,33 @@
+﻿@model BrnMall.Web.StoreAdmin.Models.StoreRunInfoModel
+
+@section header{
+<title>店铺管理中心</title>
+<link type="text/css" rel="stylesheet" href="/admin_store/css/site.css"/>
+<script type="text/javascript" src="/admin_store/scripts/jquery.js"></script>
+<style type="text/css">
+.dataList table td,.dataList table th{ padding-left:10px;}
+</style>
+}
+
+@section body{
+<h1 class="rightH1">
+店铺管理中心
+<div class="right">
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</h1>
+<br />
+<div class="dataList">
+<table width="100%">
+<thead>
+  <tr><th align="left" colspan="4">订单统计</th></tr>
+</thead>
+  <tbody>
+  <tr><td align="left" width="80px">待确认:</td><td align="left" width="300px">@Model.WaitConfirmCount</td><td align="left" width="80px">待备货:</td><td align="left">@Model.WaitPreProductCount</td></tr>
+  <tr><td align="left" width="80px">待发货:</td><td align="left" width="300px">@Model.WaitSendCount</td><td align="left" width="80px">待付款:</td><td align="left">@Model.WaitPayCount</td></tr>
+</tbody>
+</table>
+</div>
+<br />
+}

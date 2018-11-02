@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DA29F2B0-213E-42E2-A4ED-E406B293A383}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BrnMall.PayPlugin.WeChat</RootNamespace>
+    <AssemblyName>BrnMall.PayPlugin.WeChat</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Presentation\BrnMall.Web\plugins\BrnMall.PayPlugin.WeChat\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Presentation\BrnMall.Web\plugins\BrnMall.PayPlugin.WeChat\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\RefDLL\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="codes\openwechat\HttpUtil.cs" />
+    <Compile Include="codes\openwechat\LogUtil.cs" />
+    <Compile Include="codes\openwechat\MD5Util.cs" />
+    <Compile Include="codes\openwechat\OpenModel.cs" />
+    <Compile Include="codes\openwechat\PayConfig.cs" />
+    <Compile Include="codes\openwechat\RequestHandler.cs" />
+    <Compile Include="codes\openwechat\ResponseHandler.cs" />
+    <Compile Include="codes\openwechat\TenpayUtil.cs" />
+    <Compile Include="codes\PluginService.cs" />
+    <Compile Include="codes\PluginUtils.cs" />
+    <Compile Include="codes\wpwechat\HttpUtil.cs" />
+    <Compile Include="codes\wpwechat\LogUtil.cs" />
+    <Compile Include="codes\wpwechat\MD5Util.cs" />
+    <Compile Include="codes\wpwechat\OpenModel.cs" />
+    <Compile Include="codes\wpwechat\PayConfig.cs" />
+    <Compile Include="codes\wpwechat\RequestHandler.cs" />
+    <Compile Include="codes\wpwechat\ResponseHandler.cs" />
+    <Compile Include="codes\wpwechat\TenpayUtil.cs" />
+    <Compile Include="controllers\AdminWeChatController.cs" />
+    <Compile Include="controllers\AppWebChatController.cs" />
+    <Compile Include="controllers\MobWebChatController.cs" />
+    <Compile Include="models\ConfigModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="db.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="plugin.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="views\adminwechat\config.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="views\wechat\pay.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\BrnMall.Core\BrnMall.Core.csproj">
+      <Project>{089949bc-b250-42f0-8853-fada0c2a61ab}</Project>
+      <Name>BrnMall.Core</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\BrnMall.Services\BrnMall.Services.csproj">
+      <Project>{f0648a58-1818-4760-a26c-010a7e6b6e75}</Project>
+      <Name>BrnMall.Services</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Presentation\BrnMall.Web.Framework\BrnMall.Web.Framework.csproj">
+      <Project>{d28523f3-3c46-429f-8dd4-6bbf2a2d57c8}</Project>
+      <Name>BrnMall.Web.Framework</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

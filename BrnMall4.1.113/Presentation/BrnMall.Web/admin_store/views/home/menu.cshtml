@@ -1,0 +1,119 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>店铺后台菜单栏</title>
+    <script type="text/javascript" src="/admin_store/scripts/jquery.js"></script>
+    <style type="text/css">
+        *{ margin:0;padding:0;}
+        html { overflow: hidden;overflow-y: scroll; }
+        * html body{ overflow:visible;}
+        body{ font:12px/22px 'Microsoft Yahei',Verdana,Arial,sans-serif,"Times New Roman"; word-wrap:break-word; }
+        body,ul,li,h2,img,div{ margin:0; padding:0;}
+        body div{ text-align:left;}
+        li{ list-style-type:none;}
+        img{ border:0 none;}
+        a:hover{ color:#9f0017;}
+        a:link, a:visited{ text-decoration:none; color:#000;}
+        a { outline:none;color:#000;}
+        h2{ font-size:20px;}
+        .clear{ clear:both;}
+        .left{ float:left;}
+        .right{ float:right;}
+
+        /*左侧菜单*/
+        #menu{ background:url(/admin_store/images/menubg.jpg) repeat-y right; width:150px; overflow:hidden;}
+        #menu img{ margin-left:14px;}
+
+        #menu ul li{ padding-top:5px; height:30px; overflow:hidden;}
+        #menu ul li.hot{ height:auto}
+
+        #menu ul li h2{background:url(/admin_store/images/menuli_bg.jpg); height:29px; color:#404040; line-height:23px; font-size:14px; font-weight:normal; padding-left:30px; cursor:pointer;}
+        /*#menu ul li h2.hot{background:url(/admin_store/images/menuli_bg_hot.jpg); color:#FFF; font-weight:bold;}*/
+
+        #menu ul li a{ display:block; background:url(/admin_store/images/li.jpg) no-repeat 35px center; height:25px; line-height:25px; padding-left:48px;}
+        #menu ul li a:hover,#menu ul li a.hot{ background:url(/admin_store/images/li1.jpg) no-repeat 35px center; color:#e17a00; }
+    </style>
+</head>
+<body style="background: #e6e7e9;">
+    <div id="menu">
+        <img src="/admin_store/images/menubg_top.jpg" width="142px" height="49" />
+        <ul id="menuUl">
+
+        <li class="hot">
+        <h2>商品管理</h2>
+        <a href="/storeadmin/product/addproduct" target="frameRight">添加商品</a>
+        <a href="/storeadmin/product/addsku" target="frameRight">添加SKU</a>
+        <a href="/storeadmin/product/onsaleproductlist" target="frameRight">在售商品</a>
+        <a href="/storeadmin/product/outsaleproductlist" target="frameRight">下架商品</a>
+        <a href="/storeadmin/product/timeproductlist" target="frameRight">定时商品</a>
+        <a href="/storeadmin/product/recyclebinproductlist" target="frameRight">回收站</a>
+        </li>
+
+        <li>
+        <h2>促销活动</h2>
+        <a href="/storeadmin/promotion/singlepromotionlist" target="frameRight">单品促销</a>
+        <a href="/storeadmin/promotion/buysendpromotionlist" target="frameRight">买送促销</a>
+        <a href="/storeadmin/promotion/giftpromotionlist" target="frameRight">赠品促销</a>
+        <a href="/storeadmin/promotion/suitpromotionlist" target="frameRight">套装促销</a>
+        <a href="/storeadmin/promotion/fullsendpromotionlist" target="frameRight">满赠促销</a>
+        <a href="/storeadmin/promotion/fullcutpromotionlist" target="frameRight">满减促销</a>
+        <a href="/storeadmin/coupon/coupontypelist" target="frameRight">优惠劵</a>
+        </li>
+
+        <li>
+        <h2>订单管理</h2>
+        <a href="/storeadmin/order/orderlist" target="frameRight">订单列表</a>
+        <a href="/storeadmin/order/refundlist" target="frameRight">退款列表</a>
+        <a href="/storeadmin/order/afterservicelist" target="frameRight">售后服务</a>
+        </li>
+
+        <li>
+        <h2>咨询评价</h2>
+        <a href="/storeadmin/productreview/productreviewlist" target="frameRight">商品评价</a>
+        <a href="/storeadmin/productconsult/productconsultlist" target="frameRight">商品咨询</a>
+        </li>
+
+        <li>
+        <h2>报表统计</h2>
+        <a href="/storeadmin/stat/productstat" target="frameRight">商品统计</a>
+        <a href="/storeadmin/stat/saleproductlist" target="frameRight">销售明细</a>
+        <a href="/storeadmin/stat/orderstat" target="frameRight">订单统计</a>
+        </li>
+
+        <li>
+        <h2>店铺管理</h2>
+        <a href="/storeadmin/store/editstore" target="frameRight">店铺信息</a>
+        <a href="/storeadmin/store/storeclasslist" target="frameRight">店铺分类</a>
+        <a href="/storeadmin/store/storeshiptemplatelist" target="frameRight">配送模板</a>
+        </li>
+
+        </ul>
+        <img src="/admin_store/images/menubg_bottom.jpg" width="142px" height="47" />
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $("#menu h2").click(function () {
+                if ($(this).parent("li").hasClass("hot")) {
+                    $(this).removeClass("hot").parent("li").removeClass("hot");
+                } else {
+                    $("#menu h2").removeClass("hot");
+                    $(this).addClass("hot").parent("li").addClass("hot");
+                }
+            })
+
+
+            $("#menu ul li a").click(function () {
+                $("#menu h2").removeClass("hot");
+                $("#menu a").removeClass("hot");
+                $(this).addClass("hot").parent("li").children("h2").addClass("hot")
+
+            })
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+﻿@model BrnMall.Web.MallAdmin.Models.StoreShipFeeListModel
+
+@section header{
+    <title>配送费用列表</title>
+    <link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css"/>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/showlist.js"></script>
+}
+
+@section body{
+    <h1 class="rightH1">
+        店铺管理 &gt;&gt; 配送费用列表
+        <div class="right"><a href="@Url.Action("addstoreshipfee", new { StoreSTid = Model.StoreSTid })" class="menuBT"><img src="/admin_mall/images/add.jpg" />添加</a>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </h1>
+<div class="table_top"></div>
+
+<div class="dataList">
+<table width="100%">
+<thead>
+<tr>
+<th width="4"></th>
+<th align="left">区域</th>
+<th width="70" align="left">起步值</th>
+<th width="70" align="left">起步价</th>
+<th width="70" align="left">加值</th>
+<th width="70" align="left">加价</th>
+<th width="76" align="left">管理操作</th>
+</tr>
+</thead>
+<tbody>
+    @foreach (DataRow row in Model.StoreShipFeeList.Rows)
+    {
+<tr>
+<td></td>
+<td>
+    @if(row["regionid"].ToString() == "-1")
+    {
+        @:默认区域
+    }
+    else if (row["regionid"].ToString() == "0")
+    {
+        @:全国
+    }
+    else
+    {
+        @row["provincename"] @row["name"]
+     }
+</td>
+<td>@row["startvalue"]</td>
+<td>@row["startfee"]</td>
+<td>@row["addvalue"]</td>
+<td>@row["addfee"]</td>
+<td>
+    <a href="@Url.Action("editstoreshipfee", new { recordId = row["recordid"] })" class="editOperate">[修改]</a>
+    @if (row["regionid"].ToString() != "-1")
+    {
+    <a href="@Url.Action("delstoreshipfee", new { recordId = row["recordid"] })" class="deleteOperate">[删除]</a>
+    }
+  </td>
+</tr>
+    }
+</tbody>
+</table>
+</div>
+
+<div class="table_bottom"></div>
+    }

@@ -1,0 +1,17 @@
+﻿@model BrnMall.Web.MallAdmin.Models.ConfigModel
+
+@section header{
+    <title>配置插件</title>
+    <link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css"/>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+}
+@section body{
+@if(Model.ConfigRouteValues == null)
+{
+    @Html.Action(Model.ConfigAction, Model.ConfigController)
+}
+else
+{
+    @Html.Action(Model.ConfigAction, Model.ConfigController, Model.ConfigRouteValues)
+}
+}

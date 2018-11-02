@@ -1,0 +1,54 @@
+﻿@model BrnMall.Web.MallAdmin.Models.StoreIndustryListModel
+
+@section header{
+<title>店铺行业列表</title>
+<link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css"/>
+<script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+<script type="text/javascript" src="/admin_mall/scripts/showlist.js"></script>
+}
+
+@section body{
+<h1 class="rightH1">
+店铺管理 &gt;&gt; 店铺行业
+<div class="right">
+<a href="@Url.Action("add")" class="menuBT"><img src="/admin_mall/images/add.jpg"/>添加</a>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</h1>
+        <div class="table_top">
+        </div>
+@using (Html.BeginForm("list", "store"))
+{
+
+<div class="dataList">
+<table width="100%">
+<thead>
+  <tr>
+    <th width="40" align="center"><input type="checkbox" id="allSelect"/></th>
+    <th width="90" align="left" >编号</th>  
+    <th align="left" >标题</th>
+    <th width="90" align="left" >排序</th>  
+    <th width="76" align="left">管理操作</th>
+    </tr>
+</thead>
+  <tbody>
+  @foreach (StoreIndustryInfo info in Model.StoreIndustryList)
+  {
+  <tr>
+    <td align="center"><input type="checkbox" value="@info.StoreIid"/></td>
+    <td>@info.StoreIid</td>
+    <td>@info.Title</td>
+    <td>@info.DisplayOrder</td>
+    <td>
+        @Html.ActionLink("[编辑]", "edit", new { storeIid = info.StoreIid }, new { @class = "editOperate" })
+        @Html.ActionLink("[删除]", "del", new { storeIid = info.StoreIid }, new { @class = "deleteOperate" })
+    </td>
+    </tr>
+  }
+</tbody>
+</table>
+</div>
+<div class="table_bottom"></div>
+}
+}

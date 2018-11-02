@@ -1,0 +1,100 @@
+﻿@model BrnMall.Web.MallAdmin.Models.BuySendPromotionListModel
+           
+@section header{
+    <title>买送促销列表</title>
+    <link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css"/>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/showlist.js"></script>
+    <link rel="stylesheet" type="text/css"  href="/components/jbox/Skins/Default/jbox.css"/>
+    <script type="text/javascript" src="/components/jbox/jquery.jBox-2.3.min.js"></script>
+    <script type="text/javascript" src="/components/my97datepicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/selectlist.js"></script>
+}
+@section body{
+    <h1 class="rightH1">
+        买送促销 &gt;&gt; 促销列表
+<div class="right">
+<a href="@Url.Action("addbuysendpromotion")" class="menuBT"><img src="/admin_mall/images/add.jpg"/>添加</a>
+<div class="clear"></div>
+</div>
+        <div class="clear">
+        </div>
+    </h1>
+    
+    @using (Html.BeginForm())
+    {
+    
+        <div class="dataListSearch">
+            <table height="32">
+                <tbody>
+                    <tr>
+                        <td width="35"><img id="searchImg" src="/admin_mall/images/search1.gif" /></td>
+                        <td>商品店铺：</td>
+                        <td width="100">
+                        <div class="selectBt">
+                            <input type="button" value="@Model.StoreName" onclick="openStoreSelectLayer(this)"  style="height:22px; line-height:22px;background:url(/admin_mall/images/selectbgico.gif) no-repeat 6px center; padding-left:22px; padding-right:10px;"/>
+                            <input type="hidden" class="StoreId" id="StoreId" name="StoreId" value="@Model.StoreId" />
+                            <input type="hidden" class="StoreName" id="StoreName" name="StoreName" value="@Model.StoreName" />
+                        </div>
+                        </td>
+                        <td>&nbsp;活动名称：</td>
+                        <td width="180">@Html.TextBox("PromotionName", Model.PromotionName, new { height = "28", size = "30" })</td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;活动时间：</td>
+                        <td width="180">@Html.TextBox("PromotionTime", Model.PromotionTime, new { height = "28", size = "30", onfocus = "WdatePicker({el:'PromotionTime'})" })</td>
+                        <td><input id="SearchProduct" name="SearchProduct" type="image" class="searchBut submit" src="/admin_mall/images/s.jpg" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <div class="dataList">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th width="40" align="center"><input type="checkbox" id="allSelect" /></th>
+                    <th width="220" align="left">店铺名称</th>
+                    <th align="left">活动名称</th>
+                    <th width="80" align="left">活动状态</th>
+                    <th width="150" align="left">管理操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (DataRow row in Model.BuySendPromotionList.Rows)
+                {
+                    <tr>
+                        <td align="center"><input type="checkbox" value="@row["pmid"]" selectItem="true" name="pmIdList"/></td>
+                        <td>@row["sname"]</td>
+                        <td>@row["pname"]</td>
+                         <td>
+                            @if (row["state"].ToString() == "0")
+                            {
+                                    @:暂停
+                            }
+                            else
+                            {
+                                    @:启动
+                            }
+                        </td>
+                        <td>
+                        @{
+                    if (row["type"].ToString() != "0")
+                    {
+                                 @Html.ActionLink("[商品列表]", "buysendproductlist", new { pmId = row["pmid"] }, new { @class = "editOperate" })
+                    }
+                            }
+                                @Html.ActionLink("[编辑]", "editbuysendpromotion", new { pmId = row["pmid"] }, new { @class = "editOperate" })
+                                @Html.ActionLink("[删除]", "delbuysendpromotion", new { pmIdList = row["pmid"] }, new { @class = "deleteOperate" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+                <div class="dataListEdit">
+    <a href="#" delUrl="@Url.Action("delbuysendpromotion")" class="batch batchDel">批量删除</a>
+            <div class="page">
+                @Html.MallAdminPager(Model.PageModel)
+            </div>
+        </div>
+    }
+}

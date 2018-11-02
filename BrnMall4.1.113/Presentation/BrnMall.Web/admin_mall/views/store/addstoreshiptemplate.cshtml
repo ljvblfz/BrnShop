@@ -1,0 +1,87 @@
+﻿@model BrnMall.Web.MallAdmin.Models.AddStoreShipTemplateModel
+
+@section header{
+    <title>添加配送模板</title>
+    <link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css"/>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.validate.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.validate.unobtrusive.js"></script>
+}
+
+@section body{
+<h1 class="rightH1">
+店铺管理 &gt;&gt; 添加配送模板
+<div class="right">
+<a href="@Html.Raw(ViewData["referer"].ToString())" class="menuBT"><img src="/admin_mall/images/goback.jpg"/>返回列表</a>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</h1>
+
+@using (Html.BeginForm())
+{
+<div class="addTable">
+<table width="100%">
+ 
+ <tr>
+    <td width="80px" align="right">模板标题：</td>
+    <td>@Html.TextBoxFor(x => x.TemplateTitle, new { @class = "input", size = "35" })@Html.ValidationMessageFor(x => x.TemplateTitle)</td>
+    </tr>
+        <tr>
+        <td align="right">免运费：</td>
+        <td>
+            <p>
+                <label>@Html.RadioButtonFor(x => x.Free, 0, new { @class = "checkbox" })否</label>
+                <label>@Html.RadioButtonFor(x => x.Free, 1, new { @class = "checkbox" })是</label>
+                <br />
+            </p>
+        </td>
+    </tr>
+        <tr>
+        <td align="right">计费类型：</td>
+        <td>
+            <p>
+                <label>@Html.RadioButtonFor(x => x.Type, 0, new { @class = "checkbox" })按件数</label>
+                <label>@Html.RadioButtonFor(x => x.Type, 1, new { @class = "checkbox" })按重量</label>
+                <br />
+            </p>
+        </td>
+    </tr>
+      <tr>
+    <td align="right">起步值：</td>
+    <td>@Html.TextBoxFor(x => x.StartValue, new { @class = "input", size = "3" })@Html.ValidationMessageFor(x => x.StartValue)</td>
+    </tr>
+          <tr>
+    <td align="right">起步价：</td>
+    <td>@Html.TextBoxFor(x => x.StartFee, new { @class = "input", size = "3" })@Html.ValidationMessageFor(x => x.StartFee)</td>
+    </tr>
+          <tr>
+    <td align="right">加值：</td>
+    <td>@Html.TextBoxFor(x => x.AddValue, new { @class = "input", size = "3" })@Html.ValidationMessageFor(x => x.AddValue)</td>
+    </tr>
+          <tr>
+    <td align="right">加价：</td>
+    <td>@Html.TextBoxFor(x => x.AddFee, new { @class = "input", size = "3" })@Html.ValidationMessageFor(x => x.AddFee)</td>
+    </tr>
+  <tr>
+    <td align="right">&nbsp;</td>
+    <td>
+    <a href="" class="addBt" id="sumbitBut" ><img src="/admin_mall/images/submit.jpg" /></a>
+            <script type="text/javascript">
+                $(function () {
+                    $("#sumbitBut").click(function () {
+                        $("form:first").submit();
+                        return false;
+                    })
+                });
+        </script>
+    </td>
+    </tr>
+  <tr>
+    <td align="right">&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+</table>
+</div>
+    }
+}

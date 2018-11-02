@@ -1,0 +1,113 @@
+﻿@model BrnMall.Web.Models.UserProductReviewListModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>商品评价-@{@WorkContext.MallConfig.SiteTitle}</title>
+    @Html.Raw(WorkContext.MallConfig.SEOKeyword)
+    @Html.Raw(WorkContext.MallConfig.SEODescription)
+    <link href="@{@WorkContext.CSSCDN}/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="@{@WorkContext.CSSCDN}/css/ucenter.css" rel="stylesheet" type="text/css" />
+    <script src="@{@WorkContext.ScriptCDN}/scripts/jquery.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/common.js" type="text/javascript"></script>
+    <script src="@{@WorkContext.ScriptCDN}/scripts/ucenter.user.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        uid = @WorkContext.Uid;
+        isGuestSC = @WorkContext.MallConfig.IsGuestSC;
+        scSubmitType = @WorkContext.MallConfig.SCSubmitType;
+    </script>
+</head>
+
+<body>
+@Html.Partial("_header")
+
+<div class="bigBox" id="member">
+<div class="box">
+@Html.Partial("_menu")
+<div id="memberR">
+    <h2 id="memberRT">商品评价</h2>
+    <div class="favT">
+        <div class="favTpage">
+            共有 <b>@Model.PageModel.TotalCount</b> 条记录<i>
+            <font color="#ff6600">@Model.PageModel.PageNumber</font>/@Model.PageModel.TotalPages </i> &nbsp; 
+            @if (Model.PageModel.HasPrePage)
+            { 
+                <a href = "@Url.Action("productreviewlist", new RouteValueDictionary { { "page", Model.PageModel.PrePageNumber } })" class="whiteBT">上一页</a>@:&nbsp; 
+            }
+            else
+            {
+                <a href="javascript:;" class="whiteBT">上一页</a>@:&nbsp; 
+            }
+            @if (Model.PageModel.HasNextPage)
+            {
+                <a href = "@Url.Action("productreviewlist", new RouteValueDictionary { { "page", Model.PageModel.NextPageNumber } })" class="whiteBT">下一页</a>
+            }
+            else
+            {
+                <a href="javascript:;" class="whiteBT">下一页</a>
+            } 
+        </div>
+    </div>
+    <table width="100%" border="0" cellspacing="0" class="dingdan">
+         <thead>
+          <tr>
+            <th valign="bottom">商品信息</th>
+            <th width="150px" align="left">评价时间</th>
+            <th width="150px" align="left">@WorkContext.PayCreditName</th>
+          </tr>
+        </thead>
+        <tbody>
+            @foreach (ProductReviewInfo info in Model.ProductReviewList)
+            {
+           <tr>
+                <td>
+                <div class="proList">
+                    <img src="@{@WorkContext.ImageCDN}/upload/store/@info.StoreId/product/show/thumb60_60/@info.PShowImg" width="50" height="50" /><a href="@Url.Action("product", "catalog", new RouteValueDictionary { { "pid", info.Pid } })">@info.PName<br /></a>
+                    @*<div class="memberStar"><div class="star"><span class="star_yellow" style=" width:80%;">&nbsp;</span></div><a href="#">10267评价</a></div>*@
+                    <div class="clear"></div>
+                </div>
+                </td>
+                <td>@info.ReviewTime<br /></td>
+                <td>@info.PayCredits</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+<div class="favT">
+    <div class="favTpage">
+        共有 <b>@Model.PageModel.TotalCount</b> 条记录<i>
+        <font color="#ff6600">@Model.PageModel.PageNumber</font>/@Model.PageModel.TotalPages </i> &nbsp; 
+        @if (Model.PageModel.HasPrePage)
+        { 
+            <a href = "@Url.Action("productreviewlist", new RouteValueDictionary { { "page", Model.PageModel.PrePageNumber } })" class="whiteBT">上一页</a>@:&nbsp; 
+        }
+        else
+        {
+            <a href="javascript:;" class="whiteBT">上一页</a>@:&nbsp; 
+        }
+        @if (Model.PageModel.HasNextPage)
+        {
+            <a href = "@Url.Action("productreviewlist", new RouteValueDictionary { { "page", Model.PageModel.NextPageNumber } })" class="whiteBT">下一页</a>
+        }
+        else
+        {
+            <a href="javascript:;" class="whiteBT">下一页</a>
+        } 
+    </div>
+</div>
+
+</div>
+
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+
+
+@Html.Partial("_footer")
+</body>
+</html>

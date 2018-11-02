@@ -1,0 +1,67 @@
+﻿@model BrnMall.Web.MallAdmin.Models.StoreKeeperModel
+
+@section header{
+    <title>修改店长</title>
+    <link type="text/css" rel="stylesheet" href="/admin_mall/css/site.css"/>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.validate.js"></script>
+    <script type="text/javascript" src="/admin_mall/scripts/jquery.validate.unobtrusive.js"></script>
+}
+
+@section body{
+<h1 class="rightH1">
+店铺管理 &gt;&gt; 修改店长
+<div class="right">
+<a href="@Html.Raw(ViewData["referer"].ToString())" class="menuBT"><img src="/admin_mall/images/goback.jpg"/>返回列表</a>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</h1>
+@using (Html.BeginForm())
+{
+    <div class="addTable">
+<table width="100%">
+    <tr>
+    <td width="80px" align="right">店长名称：</td>
+    <td>@Html.TextBoxFor(x => x.StoreKeeperName, new { @class = "input", size = "35" })@Html.ValidationMessageFor(x => x.StoreKeeperName)</td>
+    </tr>
+    <tr>
+        <td align="right">店长类型：</td>
+        <td>
+            <p>
+                <label>@Html.RadioButtonFor(x => x.Type, 0, new { @class = "checkbox" })个人</label>
+                <label>@Html.RadioButtonFor(x => x.Type, 1, new { @class = "checkbox" })公司</label>
+                <br />
+            </p>
+        </td>
+    </tr>
+    <tr>
+    <td align="right">店长标识：</td>
+    <td>@Html.TextBoxFor(x => x.IdCard, new { @class = "input", size = "35" })@Html.ValidationMessageFor(x => x.IdCard)</td>
+    </tr>
+      <tr>
+    <td align="right">店长地址：</td>
+    <td>@Html.TextBoxFor(x => x.Address, new { @class = "input", size = "35" })@Html.ValidationMessageFor(x => x.Address)</td>
+    </tr>
+  <tr>
+    <td align="right">&nbsp;</td>
+    <td>
+    <a href="" class="addBt" id="sumbitBut" ><img src="/admin_mall/images/submit.jpg" /></a>
+            <script type="text/javascript">
+                $(function () {
+                    $("#sumbitBut").click(function () {
+                        $("form:first").submit();
+                        return false;
+                    })
+                });
+        </script>
+    </td>
+    </tr>
+  <tr>
+    <td align="right">&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+</table>
+</div>
+}
+}
