@@ -1,0 +1,4 @@
+Log Entry : 2016年06月18日 16:02:07
+方法:Void OnError(System.Data.SqlClient.SqlException, Boolean, System.Action`1[System.Action]),异常信息:列名 'storeid' 无效。
+列名 'storename' 无效。
+------------------------------------

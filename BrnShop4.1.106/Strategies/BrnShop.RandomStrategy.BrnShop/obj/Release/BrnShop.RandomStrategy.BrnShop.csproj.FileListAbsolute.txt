@@ -1,0 +1,12 @@
+C:\Users\zm\Desktop\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.RandomStrategy.BrnShop.dll
+C:\Users\zm\Desktop\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.RandomStrategy.BrnShop.pdb
+C:\Users\zm\Desktop\BrnShop\Strategies\BrnShop.RandomStrategy.BrnShop\obj\Release\BrnShop.RandomStrategy.BrnShop.dll
+C:\Users\zm\Desktop\BrnShop\Strategies\BrnShop.RandomStrategy.BrnShop\obj\Release\BrnShop.RandomStrategy.BrnShop.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.RandomStrategy.BrnShop.dll
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.RandomStrategy.BrnShop.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.RandomStrategy.BrnShop\obj\Release\BrnShop.RandomStrategy.BrnShop.dll
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.RandomStrategy.BrnShop\obj\Release\BrnShop.RandomStrategy.BrnShop.pdb
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.RandomStrategy.BrnShop.dll
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.RandomStrategy.BrnShop.pdb
+D:\工作\BrnShop\Strategies\BrnShop.RandomStrategy.BrnShop\obj\Release\BrnShop.RandomStrategy.BrnShop.dll
+D:\工作\BrnShop\Strategies\BrnShop.RandomStrategy.BrnShop\obj\Release\BrnShop.RandomStrategy.BrnShop.pdb

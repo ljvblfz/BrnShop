@@ -1,0 +1,5 @@
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.IPSeekStrategy.IPFile.dll
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.IPSeekStrategy.IPFile.pdb
+D:\工作\BrnShop\Strategies\BrnShop.IPSeekStrategy.IPFile\obj\Release\BrnShop.IPSeekStrategy.IPFile.dll
+D:\工作\BrnShop\Strategies\BrnShop.IPSeekStrategy.IPFile\obj\Release\BrnShop.IPSeekStrategy.IPFile.pdb
+D:\工作\BrnShop\Strategies\BrnShop.IPSeekStrategy.IPFile\obj\Release\BrnShop.IPSeekStrategy.IPFile.csprojResolveAssemblyReference.cache

@@ -1,0 +1,15 @@
+C:\Users\zm\Desktop\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.RDBSStrategy.SqlServer.dll
+C:\Users\zm\Desktop\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.RDBSStrategy.SqlServer.pdb
+C:\Users\zm\Desktop\BrnShop\Strategies\BrnShop.RDBSStrategy.SqlServer\obj\Release\BrnShop.RDBSStrategy.SqlServer.csprojResolveAssemblyReference.cache
+C:\Users\zm\Desktop\BrnShop\Strategies\BrnShop.RDBSStrategy.SqlServer\obj\Release\BrnShop.RDBSStrategy.SqlServer.dll
+C:\Users\zm\Desktop\BrnShop\Strategies\BrnShop.RDBSStrategy.SqlServer\obj\Release\BrnShop.RDBSStrategy.SqlServer.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.RDBSStrategy.SqlServer.dll
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.RDBSStrategy.SqlServer.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.RDBSStrategy.SqlServer\obj\Release\BrnShop.RDBSStrategy.SqlServer.dll
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.RDBSStrategy.SqlServer\obj\Release\BrnShop.RDBSStrategy.SqlServer.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.RDBSStrategy.SqlServer\obj\Release\BrnShop.RDBSStrategy.SqlServer.csprojResolveAssemblyReference.cache
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.RDBSStrategy.SqlServer.dll
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.RDBSStrategy.SqlServer.pdb
+D:\工作\BrnShop\Strategies\BrnShop.RDBSStrategy.SqlServer\obj\Release\BrnShop.RDBSStrategy.SqlServer.csprojResolveAssemblyReference.cache
+D:\工作\BrnShop\Strategies\BrnShop.RDBSStrategy.SqlServer\obj\Release\BrnShop.RDBSStrategy.SqlServer.dll
+D:\工作\BrnShop\Strategies\BrnShop.RDBSStrategy.SqlServer\obj\Release\BrnShop.RDBSStrategy.SqlServer.pdb

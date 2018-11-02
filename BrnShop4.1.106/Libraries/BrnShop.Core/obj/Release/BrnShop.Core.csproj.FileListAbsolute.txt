@@ -1,0 +1,12 @@
+C:\Users\zm\Desktop\BrnShop\Libraries\BrnShop.Core\bin\Release\BrnShop.Core.dll
+C:\Users\zm\Desktop\BrnShop\Libraries\BrnShop.Core\bin\Release\BrnShop.Core.pdb
+C:\Users\zm\Desktop\BrnShop\Libraries\BrnShop.Core\obj\Release\BrnShop.Core.dll
+C:\Users\zm\Desktop\BrnShop\Libraries\BrnShop.Core\obj\Release\BrnShop.Core.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Libraries\BrnShop.Core\bin\Release\BrnShop.Core.dll
+C:\Users\zm\Desktop\工作\BrnShop\Libraries\BrnShop.Core\bin\Release\BrnShop.Core.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Libraries\BrnShop.Core\obj\Release\BrnShop.Core.dll
+C:\Users\zm\Desktop\工作\BrnShop\Libraries\BrnShop.Core\obj\Release\BrnShop.Core.pdb
+D:\工作\BrnShop\Libraries\BrnShop.Core\bin\Release\BrnShop.Core.dll
+D:\工作\BrnShop\Libraries\BrnShop.Core\bin\Release\BrnShop.Core.pdb
+D:\工作\BrnShop\Libraries\BrnShop.Core\obj\Release\BrnShop.Core.dll
+D:\工作\BrnShop\Libraries\BrnShop.Core\obj\Release\BrnShop.Core.pdb

@@ -1,0 +1,14 @@
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.UploadStrategy.LocalServer.dll
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.UploadStrategy.LocalServer.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.UploadStrategy.LocalServer\obj\Debug\BrnShop.UploadStrategy.LocalServer.csprojResolveAssemblyReference.cache
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.UploadStrategy.LocalServer\obj\Debug\BrnShop.UploadStrategy.LocalServer.dll
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.UploadStrategy.LocalServer\obj\Debug\BrnShop.UploadStrategy.LocalServer.pdb
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.UploadStrategy.LocalServer.dll
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.UploadStrategy.LocalServer.pdb
+D:\工作\BrnShop\Strategies\BrnShop.UploadStrategy.LocalServer\obj\Debug\BrnShop.UploadStrategy.LocalServer.dll
+D:\工作\BrnShop\Strategies\BrnShop.UploadStrategy.LocalServer\obj\Debug\BrnShop.UploadStrategy.LocalServer.pdb
+C:\Users\zm\Desktop\aaa\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.UploadStrategy.LocalServer.dll
+C:\Users\zm\Desktop\aaa\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.UploadStrategy.LocalServer.pdb
+C:\Users\zm\Desktop\aaa\BrnShop\Strategies\BrnShop.UploadStrategy.LocalServer\obj\Debug\BrnShop.UploadStrategy.LocalServer.csprojResolveAssemblyReference.cache
+C:\Users\zm\Desktop\aaa\BrnShop\Strategies\BrnShop.UploadStrategy.LocalServer\obj\Debug\BrnShop.UploadStrategy.LocalServer.dll
+C:\Users\zm\Desktop\aaa\BrnShop\Strategies\BrnShop.UploadStrategy.LocalServer\obj\Debug\BrnShop.UploadStrategy.LocalServer.pdb

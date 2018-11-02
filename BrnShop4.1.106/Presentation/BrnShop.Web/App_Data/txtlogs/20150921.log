@@ -1,0 +1,3 @@
+Log Entry : 2015年09月21日 18:52:20
+方法:System.CodeDom.Compiler.CompilerResults Compile(),异常信息:c:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\administration\views\stat\orderstat.cshtml(18): error CS1061: “BrnShop.Web.Admin.Models.OrderStatModel”不包含“TrendItemList”的定义，并且找不到可接受类型为“BrnShop.Web.Admin.Models.OrderStatModel”的第一个参数的扩展方法“TrendItemList”(是否缺少 using 指令或程序集引用?)
+------------------------------------

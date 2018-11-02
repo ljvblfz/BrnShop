@@ -1,0 +1,10 @@
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.Web.Mobile.dll
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.Web.Mobile.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\mobile\obj\Release\BrnShop.Web.Mobile.dll
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\mobile\obj\Release\BrnShop.Web.Mobile.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\mobile\obj\Release\BrnShop.Web.Mobile.csprojResolveAssemblyReference.cache
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.Web.Mobile.dll
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.Web.Mobile.pdb
+D:\工作\BrnShop\Presentation\BrnShop.Web\mobile\obj\Release\BrnShop.Web.Mobile.csprojResolveAssemblyReference.cache
+D:\工作\BrnShop\Presentation\BrnShop.Web\mobile\obj\Release\BrnShop.Web.Mobile.dll
+D:\工作\BrnShop\Presentation\BrnShop.Web\mobile\obj\Release\BrnShop.Web.Mobile.pdb

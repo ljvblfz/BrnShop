@@ -1,0 +1,8 @@
+.jqzoom { border: 1px solid #eee; cursor: pointer; display: inline-block; padding: 0; position: relative; z-index: 9; }
+.jqzoom img { display: inline !important; max-height: 350px; max-width: 350px; text-align: center; }
+.jqzoom_small_img { display: inline !important; max-height: 55px; max-width: 55px; text-align: center; }
+div.zoomdiv { background: none repeat scroll 0 0 #fff; border: 1px solid #ccc; display: none; height: 100px; left: 0; overflow: hidden; position: absolute; text-align: center; top: 0; width: 100px; z-index: 100; }
+div.jqZoomPup { background: none repeat scroll 0 0 #fff; border: 1px solid #aaa; height: 50px; left: 0; opacity: 0.5; filter: alpha(opacity=50); position: absolute; top: 0; visibility: hidden; width: 50px; z-index: 10; }
+.ware_box li { cursor: pointer; float: left; overflow: hidden; text-align: center; width: 48px; height: 48px; margin-right: 10.5px; }
+.ware_box li img { width: 48px; height: 48px; }
+.ware_pic_hover { border: 1px solid #ec4423; }

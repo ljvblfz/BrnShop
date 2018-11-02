@@ -1,0 +1,15 @@
+C:\Users\zm\Desktop\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.CartStrategy.SqlServer.dll
+C:\Users\zm\Desktop\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.CartStrategy.SqlServer.pdb
+C:\Users\zm\Desktop\BrnShop\Strategies\BrnShop.CartStrategy.SqlServer\obj\Release\BrnShop.CartStrategy.SqlServer.csprojResolveAssemblyReference.cache
+C:\Users\zm\Desktop\BrnShop\Strategies\BrnShop.CartStrategy.SqlServer\obj\Release\BrnShop.CartStrategy.SqlServer.dll
+C:\Users\zm\Desktop\BrnShop\Strategies\BrnShop.CartStrategy.SqlServer\obj\Release\BrnShop.CartStrategy.SqlServer.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.CartStrategy.SqlServer.dll
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.CartStrategy.SqlServer.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.CartStrategy.SqlServer\obj\Release\BrnShop.CartStrategy.SqlServer.csprojResolveAssemblyReference.cache
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.CartStrategy.SqlServer\obj\Release\BrnShop.CartStrategy.SqlServer.dll
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.CartStrategy.SqlServer\obj\Release\BrnShop.CartStrategy.SqlServer.pdb
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.CartStrategy.SqlServer.dll
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.CartStrategy.SqlServer.pdb
+D:\工作\BrnShop\Strategies\BrnShop.CartStrategy.SqlServer\obj\Release\BrnShop.CartStrategy.SqlServer.csprojResolveAssemblyReference.cache
+D:\工作\BrnShop\Strategies\BrnShop.CartStrategy.SqlServer\obj\Release\BrnShop.CartStrategy.SqlServer.dll
+D:\工作\BrnShop\Strategies\BrnShop.CartStrategy.SqlServer\obj\Release\BrnShop.CartStrategy.SqlServer.pdb

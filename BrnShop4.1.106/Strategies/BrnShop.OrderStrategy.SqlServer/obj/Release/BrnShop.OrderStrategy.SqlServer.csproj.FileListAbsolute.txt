@@ -1,0 +1,12 @@
+C:\Users\zm\Desktop\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.OrderStrategy.SqlServer.dll
+C:\Users\zm\Desktop\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.OrderStrategy.SqlServer.pdb
+C:\Users\zm\Desktop\BrnShop\Strategies\BrnShop.OrderStrategy.SqlServer\obj\Release\BrnShop.OrderStrategy.SqlServer.dll
+C:\Users\zm\Desktop\BrnShop\Strategies\BrnShop.OrderStrategy.SqlServer\obj\Release\BrnShop.OrderStrategy.SqlServer.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.OrderStrategy.SqlServer.dll
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.OrderStrategy.SqlServer.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.OrderStrategy.SqlServer\obj\Release\BrnShop.OrderStrategy.SqlServer.dll
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.OrderStrategy.SqlServer\obj\Release\BrnShop.OrderStrategy.SqlServer.pdb
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.OrderStrategy.SqlServer.dll
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.OrderStrategy.SqlServer.pdb
+D:\工作\BrnShop\Strategies\BrnShop.OrderStrategy.SqlServer\obj\Release\BrnShop.OrderStrategy.SqlServer.dll
+D:\工作\BrnShop\Strategies\BrnShop.OrderStrategy.SqlServer\obj\Release\BrnShop.OrderStrategy.SqlServer.pdb

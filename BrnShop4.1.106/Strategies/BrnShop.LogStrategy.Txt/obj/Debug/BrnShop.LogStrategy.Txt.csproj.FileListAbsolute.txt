@@ -1,0 +1,14 @@
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.LogStrategy.Txt.dll
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.LogStrategy.Txt.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.LogStrategy.Txt\obj\Debug\BrnShop.LogStrategy.Txt.csprojResolveAssemblyReference.cache
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.LogStrategy.Txt\obj\Debug\BrnShop.LogStrategy.Txt.dll
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.LogStrategy.Txt\obj\Debug\BrnShop.LogStrategy.Txt.pdb
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.LogStrategy.Txt.dll
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.LogStrategy.Txt.pdb
+D:\工作\BrnShop\Strategies\BrnShop.LogStrategy.Txt\obj\Debug\BrnShop.LogStrategy.Txt.dll
+D:\工作\BrnShop\Strategies\BrnShop.LogStrategy.Txt\obj\Debug\BrnShop.LogStrategy.Txt.pdb
+C:\Users\zm\Desktop\aaa\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.LogStrategy.Txt.dll
+C:\Users\zm\Desktop\aaa\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.LogStrategy.Txt.pdb
+C:\Users\zm\Desktop\aaa\BrnShop\Strategies\BrnShop.LogStrategy.Txt\obj\Debug\BrnShop.LogStrategy.Txt.csprojResolveAssemblyReference.cache
+C:\Users\zm\Desktop\aaa\BrnShop\Strategies\BrnShop.LogStrategy.Txt\obj\Debug\BrnShop.LogStrategy.Txt.dll
+C:\Users\zm\Desktop\aaa\BrnShop\Strategies\BrnShop.LogStrategy.Txt\obj\Debug\BrnShop.LogStrategy.Txt.pdb

@@ -1,0 +1,2 @@
+﻿2015/12/18 9:29:47     code_url:https://open.weixin.qq.com/connect/oauth2/authorize?appid=64767&redirect_uri=http://www.brnshop.com/mob/wechat/pay?oid=34&response_type=code&scope=snsapi_base&state=lk#wechat_redirect
+

@@ -1,0 +1,12 @@
+C:\Users\zm\Desktop\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.SessionStrategy.AspNetCache.dll
+C:\Users\zm\Desktop\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.SessionStrategy.AspNetCache.pdb
+C:\Users\zm\Desktop\BrnShop\Strategies\BrnShop.SessionStrategy.AspNetCache\obj\Release\BrnShop.SessionStrategy.AspNetCache.dll
+C:\Users\zm\Desktop\BrnShop\Strategies\BrnShop.SessionStrategy.AspNetCache\obj\Release\BrnShop.SessionStrategy.AspNetCache.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.SessionStrategy.AspNetCache.dll
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.SessionStrategy.AspNetCache.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.SessionStrategy.AspNetCache\obj\Release\BrnShop.SessionStrategy.AspNetCache.dll
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.SessionStrategy.AspNetCache\obj\Release\BrnShop.SessionStrategy.AspNetCache.pdb
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.SessionStrategy.AspNetCache.dll
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.SessionStrategy.AspNetCache.pdb
+D:\工作\BrnShop\Strategies\BrnShop.SessionStrategy.AspNetCache\obj\Release\BrnShop.SessionStrategy.AspNetCache.dll
+D:\工作\BrnShop\Strategies\BrnShop.SessionStrategy.AspNetCache\obj\Release\BrnShop.SessionStrategy.AspNetCache.pdb

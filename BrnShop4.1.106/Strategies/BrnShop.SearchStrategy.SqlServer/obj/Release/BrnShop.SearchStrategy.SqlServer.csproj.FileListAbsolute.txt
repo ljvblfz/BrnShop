@@ -1,0 +1,14 @@
+C:\Users\zm\Desktop\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.SearchStrategy.SqlServer.dll
+C:\Users\zm\Desktop\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.SearchStrategy.SqlServer.pdb
+C:\Users\zm\Desktop\BrnShop\Strategies\BrnShop.SearchStrategy.SqlServer\obj\Release\BrnShop.SearchStrategy.SqlServer.dll
+C:\Users\zm\Desktop\BrnShop\Strategies\BrnShop.SearchStrategy.SqlServer\obj\Release\BrnShop.SearchStrategy.SqlServer.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.SearchStrategy.SqlServer.dll
+C:\Users\zm\Desktop\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.SearchStrategy.SqlServer.pdb
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.SearchStrategy.SqlServer\obj\Release\BrnShop.SearchStrategy.SqlServer.csprojResolveAssemblyReference.cache
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.SearchStrategy.SqlServer\obj\Release\BrnShop.SearchStrategy.SqlServer.dll
+C:\Users\zm\Desktop\工作\BrnShop\Strategies\BrnShop.SearchStrategy.SqlServer\obj\Release\BrnShop.SearchStrategy.SqlServer.pdb
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.SearchStrategy.SqlServer.dll
+D:\工作\BrnShop\Presentation\BrnShop.Web\bin\BrnShop.SearchStrategy.SqlServer.pdb
+D:\工作\BrnShop\Strategies\BrnShop.SearchStrategy.SqlServer\obj\Release\BrnShop.SearchStrategy.SqlServer.csprojResolveAssemblyReference.cache
+D:\工作\BrnShop\Strategies\BrnShop.SearchStrategy.SqlServer\obj\Release\BrnShop.SearchStrategy.SqlServer.dll
+D:\工作\BrnShop\Strategies\BrnShop.SearchStrategy.SqlServer\obj\Release\BrnShop.SearchStrategy.SqlServer.pdb
